@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Logo = ({ isDarkText }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [constructionPhase, setConstructionPhase] = useState(0);
   const [roofCycle, setRoofCycle] = useState(0);
 
   const primaryColor = isDarkText ? "text-primary-500" : "text-primary-400";
-  const textColor = isDarkText ? "text-slate-900" : "text-white";
   const subTextColor = "text-slate-400";
 
   // Construction animation sequence on initial load
