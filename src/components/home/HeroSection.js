@@ -69,7 +69,7 @@ const HeroSection = () => {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [charIndex, isDeleting, currentSlide, heroSlides]);
+  }, [charIndex, isDeleting, currentSlide]);
 
   // Auto-scroll slides - synchronized with typing
   useEffect(() => {
@@ -120,25 +120,25 @@ const HeroSection = () => {
     resetForNewSlide(index);
   };
 
-  const nextSlide = useCallback(() => {
-    const newIndex = (currentSlide + 1) % heroSlides.length;
-    resetForNewSlide(newIndex);
-  }, [currentSlide, resetForNewSlide]);
+  // const nextSlide = useCallback(() => {
+  //   const newIndex = (currentSlide + 1) % heroSlides.length;
+  //   resetForNewSlide(newIndex);
+  // }, [currentSlide, resetForNewSlide]);
 
-  const prevSlide = useCallback(() => {
-    const newIndex = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
-    resetForNewSlide(newIndex);
-  }, [currentSlide, resetForNewSlide]);
+  // const prevSlide = useCallback(() => {
+  //   const newIndex = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+  //   resetForNewSlide(newIndex);
+  // }, [currentSlide, resetForNewSlide]);
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-    if (!isPlaying) {
-      // Restart interval when playing
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
-  };
+  // const togglePlay = () => {
+  //   setIsPlaying(!isPlaying);
+  //   if (!isPlaying) {
+  //     // Restart interval when playing
+  //     if (intervalRef.current) {
+  //       clearInterval(intervalRef.current);
+  //     }
+  //   }
+  // };
 
   const currentData = heroSlides[currentSlide];
 

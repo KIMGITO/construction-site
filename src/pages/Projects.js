@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
 import ProjectFilter from "../components/projects/ProjectFilter";
 import { projects } from "../data/projects";
@@ -9,7 +9,7 @@ import ThreeDProjectRotator from "../components/layout/ThreeDRotator";
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
-  const [visibleProjects, setVisibleProjects] = useState(6);
+  // const [visibleProjects, setVisibleProjects] = useState(6);
 
   const categories = [
     { value: "all", label: "All Projects" },
@@ -18,14 +18,14 @@ const Projects = () => {
     { value: "Renovation", label: "Renovations" },
   ];
 
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((project) => project.category === filter);
+  // const filteredProjects =
+  //   filter === "all"
+  //     ? projects
+  //     : projects.filter((project) => project.category === filter);
 
-  const loadMore = () => {
-    setVisibleProjects((prev) => Math.min(prev + 3, filteredProjects.length));
-  };
+  // const loadMore = () => {
+  //   setVisibleProjects((prev) => Math.min(prev + 3, filteredProjects.length));
+  // };
 
   
   

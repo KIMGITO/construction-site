@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
 import ServicesList from "../components/services/ServicesList";
-import { services } from "../data/services";
 import "./Services.css";
 
 const Services = () => {

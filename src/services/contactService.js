@@ -51,7 +51,7 @@ export const contactService = {
 
   subscribeNewsletter: async (email) => {
     try {
-      const response = await api.post("/newsletter/subscribe", { email });
+      api.post("/newsletter/subscribe", { email });
       return {
         success: true,
         message: "Successfully subscribed to newsletter",

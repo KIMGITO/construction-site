@@ -5,7 +5,7 @@ import HeroSection from "../components/home/HeroSection";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import ServicesPreview from "../components/home/ServicesPreview";
 import FeaturedProjects from "../components/home/FeaturedProjects";
-import Testimonials from "../components/home/Testimonials";
+// import Testimonials from "../components/home/Testimonials";
 import CTASection from "../components/home/CTASection";
 
 const Home = () => {

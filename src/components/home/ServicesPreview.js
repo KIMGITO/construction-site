@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaHardHat, FaBuilding, FaHome, FaPaintRoller } from "react-icons/fa";
+// import { FaHardHat, FaBuilding, FaHome, FaPaintRoller } from "react-icons/fa";
 import "./ServicesPreview.css";
 import { services } from "../../data/services";
 
