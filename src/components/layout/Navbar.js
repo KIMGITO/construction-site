@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 import Logo from "../../assets/icons/Logo";
 
 const Navbar = () => {
@@ -38,8 +38,8 @@ const Navbar = () => {
           : "bg-transparent py-8"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-start">
-        <Logo/>
+      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+        <Logo size="md"  />
         {/* Desktop Menu - High End Typography */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => {
