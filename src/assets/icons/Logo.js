@@ -45,8 +45,6 @@ const Logo = ({ isDarkText }) => {
     <Link
       to="/"
       className="relative z-[110] group flex flex-col items-center"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative pt-8 px-4">
         {/* The Roof with Chimney - Reconstructing periodically */}
