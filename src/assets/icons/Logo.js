@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-const Logo = ({
-  isDarkText = false,
-  size = "md", 
-  className = "",
-}) => {
-  const [constructionStep, setConstructionStep] = useState(0);
-  const [showText, setShowText] = useState(false);
+const Logo = ({ isDarkText = false, size = "md", className = "" }) => {
+  const [constructionStep, setConstructionStep] = useState(1);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
 
   // Size mapping
@@ -26,8 +21,7 @@ const Logo = ({
       svgHeight: 100,
       textSize: "text-3xl",
       subTextSize: "text-[10px]",
-    } 
-    
+    },
   };
 
   const currentSize = sizes[size] || sizes.md;
@@ -35,7 +29,6 @@ const Logo = ({
   const primaryColor = isDarkText ? "text-primary-500" : "text-primary-400";
   const subTextColor = "text-slate-400";
 
-  
   useEffect(() => {
     let interval;
     let letterInterval;
@@ -46,8 +39,6 @@ const Logo = ({
         letterInterval = setTimeout(() => {
           setCurrentLetterIndex((prev) => prev + 1);
         }, 150);
-      } else {
-        setShowText(true);
       }
     }
 
@@ -57,14 +48,14 @@ const Logo = ({
         if (prev === 4) {
           // After chimney, start typing
           setCurrentLetterIndex(0);
-          setShowText(false);
           return 5;
         }
         if (prev === 6) {
-          // Reset after showing full text
-          setCurrentLetterIndex(0);
-          setShowText(false);
-          return 0;
+          setTimeout(() => {
+            setConstructionStep(0);
+            setCurrentLetterIndex(0);
+          }, 5000); 
+          return prev;
         }
         return prev + 1;
       });
@@ -77,19 +68,15 @@ const Logo = ({
   }, [constructionStep, currentLetterIndex]);
 
   // Animation variants for building parts
-  const groundVariants = {
-    hidden: { scaleX: 0, opacity: 0 },
-    visible: { scaleX: 1, opacity: 1, transition: { duration: 0.8 } },
-  };
 
   const wallVariants = {
     hidden: { scaleY: 0, opacity: 0 },
-    visible: { scaleY: 1, opacity: 1, transition: { duration: 0.5 } },
+    visible: { scaleY: 1, opacity: 1, transition: { duration: 0.2 } },
   };
 
   const roofVariants = {
     hidden: { pathLength: 0, opacity: 0 },
-    visible: { pathLength: 1, opacity: 1, transition: { duration: 0.8 } },
+    visible: { pathLength: 1, opacity: 1, transition: { duration: 0.5 } },
   };
 
   const chimneyVariants = {
@@ -120,8 +107,6 @@ const Logo = ({
           viewBox={`0 0 ${currentSize.svgWidth} ${currentSize.svgHeight}`}
           className="absolute -top-2 left-1/2 -translate-x-1/2"
         >
-          
-
           {/* Left Wall - Step 1 */}
           {(constructionStep >= 1 || constructionStep > 6) && (
             <motion.rect
@@ -136,8 +121,6 @@ const Logo = ({
               animate={constructionStep >= 1 ? "visible" : "hidden"}
             />
           )}
-
-         
 
           {/* Roof - Step 3 */}
           {(constructionStep >= 3 || constructionStep > 6) && (
