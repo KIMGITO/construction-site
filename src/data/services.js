@@ -1,8 +1,6 @@
 import {
   FaBuilding,
-  FaHome,
   FaPaintRoller,
-  FaDraftingCompass,
   FaTools,
   FaHardHat,
   FaTruck,

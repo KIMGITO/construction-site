@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import SEO from "../components/seo/SEO";
-import ProjectFilter from "../components/projects/ProjectFilter";
-import { projects } from "../data/projects";
+// import { motion } from "framer-motion";
+// import SEO from "../components/seo/SEO";
+// import ProjectFilter from "../components/projects/ProjectFilter";
+// import { projects } from "../data/projects";
+// import ThreeDProjectRotator from "../components/layout/ThreeDRotator";
 import "./Projects.css";
-import ThreeDProjectRotator from "../components/layout/ThreeDRotator";
+
 
 
 const Projects = () => {
-  const [filter, setFilter] = useState("all");
+  // const [filter, setFilter] = useState("all");
   // const [visibleProjects, setVisibleProjects] = useState(6);
 
-  const categories = [
-    { value: "all", label: "All Projects" },
-    { value: "Commercial", label: "Commercial" },
-    { value: "Residential", label: "Residential" },
-    { value: "Renovation", label: "Renovations" },
-  ];
+  // const categories = [
+  //   { value: "all", label: "All Projects" },
+  //   { value: "Commercial", label: "Commercial" },
+  //   { value: "Residential", label: "Residential" },
+  //   { value: "Renovation", label: "Renovations" },
+  // ];
 
   // const filteredProjects =
   //   filter === "all"

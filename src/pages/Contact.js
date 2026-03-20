@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
-import SEO from "../components/seo/SEO";
-import ContactInfo from "../components/contact/ContactInfo";
-import ContactForm from "../components/contact/ContactForm";
-import Map from "../components/contact/Map";
+// import { motion } from "framer-motion";
+// import SEO from "../components/seo/SEO";
+// import ContactInfo from "../components/contact/ContactInfo";
+// import ContactForm from "../components/contact/ContactForm";
+// import Map from "../components/contact/Map";
 import "./Contact.css";
 
 const Contact = () => {

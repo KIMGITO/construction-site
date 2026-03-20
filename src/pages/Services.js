@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import SEO from "../components/seo/SEO";
-import ServicesList from "../components/services/ServicesList";
+// import { Link } from "react-router-dom";
+// import { motion } from "framer-motion";
+// import SEO from "../components/seo/SEO";
+// import ServicesList from "../components/services/ServicesList";
 import "./Services.css";
 
 const Services = () => {
