@@ -7,13 +7,13 @@ const ValuesSection = () => {
   const values = [
     {
       icon: <FaGem />,
-      title: "Quality Craftsmanship",
+      title: "Interlocking Excellence",
       description:
-        "We never compromise on quality, using only the best materials and techniques to ensure lasting results that exceed industry standards.",
+        "We specialize in innovative interlocking building technology that delivers superior strength, faster construction, and enhanced durability for every project.",
       points: [
-        "Premium materials",
-        "Expert workmanship",
-        "Rigorous quality control",
+        "Precision engineering",
+        "Faster completion",
+        "Superior strength",
       ],
     },
     {
@@ -27,9 +27,9 @@ const ValuesSection = () => {
       icon: <FaLightbulb />,
       title: "Innovation & Excellence",
       description:
-        "Embracing new technologies and methods to deliver better, more efficient results while maintaining traditional craftsmanship.",
+        "Embracing cutting-edge interlocking technology while maintaining traditional craftsmanship standards.",
       points: [
-        "Modern techniques",
+        "Interlocking systems",
         "Sustainable practices",
         "Continuous improvement",
       ],
@@ -39,7 +39,7 @@ const ValuesSection = () => {
       title: "Safety First",
       description:
         "Maintaining the highest safety standards on every project, protecting our team, clients, and the community.",
-      points: ["OSHA compliant", "Regular training", "Safety audits"],
+      points: ["Safety certified", "Regular training", "Quality assurance"],
     },
   ];
 
@@ -54,11 +54,11 @@ const ValuesSection = () => {
           className="section-header"
         >
           <h2>Our Core Values</h2>
-          <p>The principles that guide everything we do</p>
+          <p>The principles that guide our interlocking building expertise</p>
         </motion.div>
 
         <div className="values-grid">
-          {values.map((value, index) => (
+          {values.slice(0,3).map((value, index) => (
             <motion.div
               key={index}
               className="value-card-detailed"

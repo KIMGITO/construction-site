@@ -31,33 +31,35 @@ const Projects = () => {
   
 
   return (
-    <>
-      <SEO
-        title="Our Construction Projects Portfolio"
-        url="/projects"
-        description="View Martine Construction's portfolio of successful commercial and residential projects."
-      />
+    <div className="mt-52"></div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="projects-page"
-      >
-        <div className="page-header">
-          <h1>Our Project Portfolio</h1>
-          <p>Excellence in every build - Explore our completed projects</p>
-        </div>
+    // <>
+    //   <SEO
+    //     title="Our Construction Projects Portfolio"
+    //     url="/projects"
+    //     description="View Martine Construction's portfolio of successful commercial and residential projects."
+    //   />
 
-        <ProjectFilter
-          categories={categories}
-          activeFilter={filter}
-          onFilterChange={setFilter}
-        />
+    //   <motion.div
+    //     initial={{ opacity: 0 }}
+    //     animate={{ opacity: 1 }}
+    //     exit={{ opacity: 0 }}
+    //     className="projects-page"
+    //   >
+    //     <div className="page-header">
+    //       <h1>Our Project Portfolio</h1>
+    //       <p>Excellence in every build - Explore our completed projects</p>
+    //     </div>
 
-        <ThreeDProjectRotator projects={projects.slice(0, 6)} />
-      </motion.div>
-    </>
+    //     <ProjectFilter
+    //       categories={categories}
+    //       activeFilter={filter}
+    //       onFilterChange={setFilter}
+    //     />
+
+    //     <ThreeDProjectRotator projects={projects.slice(0, 6)} />
+    //   </motion.div>
+    // </>
   );
 };
 

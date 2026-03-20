@@ -12,7 +12,7 @@ const About = () => {
       <SEO
         title="About Us"
         url="/about"
-        description="Learn about Martine Construction's 25+ year history, our mission, values, and the expert team behind our successful construction projects."
+        description="Learn about Martin Construction's journey since 2020, specializing in interlocking building technology, traditional block construction, and renovation services."
       />
 
       <motion.div
@@ -22,8 +22,8 @@ const About = () => {
         className="about-page"
       >
         <div className="page-header">
-          <h1>About Martine Construction</h1>
-          <p>Building excellence with integrity and innovation since 1995</p>
+          <h1>About Martin Construction</h1>
+          <p>Building with innovation, interlocking since 2020</p>
         </div>
 
         <section className="about-story">
@@ -38,18 +38,28 @@ const About = () => {
               >
                 <h2>Our Story</h2>
                 <p>
-                  Founded in 1995 by John Martine, Martine Construction has
-                  grown from a small family business into one of the region's
-                  most trusted construction companies. Our journey began with a
-                  simple mission: to build structures that stand the test of
-                  time while exceeding client expectations.
+                  Founded in 2020 by Martin Mukundi, Martin Construction began
+                  as a small family business with a revolutionary vision: to
+                  transform construction through innovative interlocking
+                  building technology. Starting with just a handful of projects
+                  and a passion for quality, we quickly earned a reputation for
+                  delivering stronger, faster, and more sustainable structures.
+                </p>
+                <p>
+                  Our journey began with a simple mission: to build structures
+                  that stand the test of time while exceeding client
+                  expectations. Through our specialized interlocking building
+                  system, we've revolutionized the way homes, commercial spaces,
+                  and retaining walls are constructed in our region.
                 </p>
                 <p>
                   Today, we continue that mission with every project, combining
-                  traditional craftsmanship with modern innovation. Our team of
-                  skilled professionals brings decades of combined experience to
-                  every construction site, ensuring that each project receives
-                  the attention to detail it deserves.
+                  cutting-edge interlocking technology with traditional
+                  craftsmanship. Our team of skilled professionals has grown
+                  from a small family operation to one of the region's most
+                  trusted construction companies, specializing in interlocking
+                  building while also mastering traditional block construction
+                  and renovation services.
                 </p>
               </motion.div>
               <motion.div
@@ -60,8 +70,8 @@ const About = () => {
                 className="story-image"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                  alt="Martine Construction team"
+                  src="https://images.unsplash.com/photo-1664972988916-da679f400f2b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZyaWNhbiUyMGNvc3RydWN0aW9uJTIwbWVldGluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                  alt="Martin Construction team with interlocking building project"
                   loading="lazy"
                 />
               </motion.div>

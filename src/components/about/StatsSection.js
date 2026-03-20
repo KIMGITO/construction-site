@@ -7,17 +7,17 @@ const StatsSection = () => {
   const stats = [
     {
       icon: <FaBuilding />,
-      value: "500+",
+      value: "50+",
       label: "Projects Completed",
     },
     {
       icon: <FaUsers />,
-      value: "50+",
+      value: "10+",
       label: "Team Members",
     },
     {
       icon: <FaTrophy />,
-      value: "25+",
+      value: "5+",
       label: "Years Experience",
     },
     {
