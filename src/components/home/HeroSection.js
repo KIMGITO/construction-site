@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa";
 import { heroSlides } from "../../data/heroSlides";
 
 const HeroSection = () => {
