@@ -1,5 +1,4 @@
 import {
-  FaHardHat,
   FaBuilding,
   FaHome,
   FaPaintRoller,

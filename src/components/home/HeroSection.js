@@ -5,7 +5,8 @@ import { heroSlides } from "../../data/heroSlides";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  // const [isPlaying, setIsPlaying] = useState(true);
+  const isPlaying = true;
   const [typedText, setTypedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -100,7 +101,7 @@ const HeroSection = () => {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isPlaying, currentSlide, typingComplete, charIndex, heroSlides]);
+  }, [isPlaying, currentSlide, typingComplete, charIndex]);
 
   // Reset everything when manually changing slides
   const resetForNewSlide = useCallback((newIndex) => {
