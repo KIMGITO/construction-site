@@ -1,0 +1,11 @@
+.map-container {
+  margin-top: 40px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.map-iframe {
+  display: block;
+  width: 100%;
+}

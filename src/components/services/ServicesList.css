@@ -1,0 +1,16 @@
+.services-list {
+  padding: 80px 0;
+  background-color: var(--background-light);
+}
+
+.services-grid-detailed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .services-grid-detailed {
+    grid-template-columns: 1fr;
+  }
+}

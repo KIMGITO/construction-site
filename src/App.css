@@ -1,0 +1,4 @@
+/* You can keep this minimal or remove it entirely */
+.App {
+  @apply min-h-screen;
+}

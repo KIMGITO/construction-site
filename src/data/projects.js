@@ -1,0 +1,243 @@
+export const projects = [
+  {
+    id: 1,
+    title: "Modern Office Tower",
+    slug: "modern-office-tower",
+    category: "Commercial",
+    location: "Downtown Business District",
+    year: "2024",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "A 20-story modern office building with sustainable features and state-of-the-art facilities.",
+    features: [
+      "LEED Certified",
+      "Smart Building Technology",
+      "Rooftop Garden",
+      "Energy Efficient",
+    ],
+    client: "Tech Innovations Inc.",
+    area: "150,000 sq ft",
+    duration: "18 months",
+  },
+  {
+    id: 2,
+    title: "Lakeside Luxury Residence",
+    slug: "lakeside-luxury-residence",
+    category: "Residential",
+    location: "Lakeview Estates",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Custom 6,500 sq ft lakefront home with panoramic views and premium finishes.",
+    features: [
+      "Smart Home Integration",
+      "Infinity Pool",
+      "Private Dock",
+      "Home Theater",
+    ],
+    client: "Private Family",
+    area: "6,500 sq ft",
+    duration: "14 months",
+  },
+  {
+    id: 3,
+    title: "Historic Hotel Renovation",
+    slug: "historic-hotel-renovation",
+    category: "Renovation",
+    location: "Old Town District",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Complete restoration of a 1920s historic hotel, preserving original features while modernizing amenities.",
+    features: [
+      "Historic Preservation",
+      "Modern Amenities",
+      "Energy Efficiency",
+      "Restaurant Addition",
+    ],
+    client: "Heritage Hotels Group",
+    area: "75,000 sq ft",
+    duration: "24 months",
+  },
+  {
+    id: 4,
+    title: "Tech Campus Building C",
+    slug: "tech-campus-building-c",
+    category: "Commercial",
+    location: "Innovation Park",
+    year: "2024",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "150,000 sq ft office building for a major tech company with collaborative workspaces.",
+    features: [
+      "Open Floor Plans",
+      "Green Spaces",
+      "Advanced HVAC",
+      "Rooftop Terrace",
+    ],
+    client: "Global Tech Solutions",
+    area: "150,000 sq ft",
+    duration: "16 months",
+  },
+  {
+    id: 5,
+    title: "Mediterranean Villa",
+    slug: "mediterranean-villa",
+    category: "Residential",
+    location: "Coastal Heights",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Mediterranean-style estate with custom stonework and imported tiles.",
+    features: [
+      "Custom Stonework",
+      "Courtyard",
+      "Wine Cellar",
+      "Outdoor Kitchen",
+    ],
+    client: "Private Client",
+    area: "8,200 sq ft",
+    duration: "20 months",
+  },
+  {
+    id: 6,
+    title: "Downtown Loft Conversions",
+    slug: "downtown-loft-conversions",
+    category: "Renovation",
+    location: "Arts District",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Conversion of historic warehouse into 12 luxury loft apartments.",
+    features: [
+      "Exposed Brick",
+      "High Ceilings",
+      "Industrial Elements",
+      "Rooftop Garden",
+    ],
+    client: "Urban Living Development",
+    area: "45,000 sq ft",
+    duration: "15 months",
+  },
+  {
+    id: 7,
+    title: "Shopping Mall Expansion",
+    slug: "shopping-mall-expansion",
+    category: "Commercial",
+    location: "Westfield Mall",
+    year: "2024",
+    image:
+      "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "150,000 sq ft expansion adding 30 new retail spaces and a food court.",
+    features: [
+      "Modern Design",
+      "Food Court",
+      "Parking Structure",
+      "Entertainment Zone",
+    ],
+    client: "Westfield Properties",
+    area: "150,000 sq ft",
+    duration: "22 months",
+  },
+  {
+    id: 8,
+    title: "Modern Farmhouse",
+    slug: "modern-farmhouse",
+    category: "Residential",
+    location: "Countryside Estates",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Contemporary farmhouse with traditional elements and modern amenities.",
+    features: [
+      "Wrap-around Porch",
+      "Open Concept",
+      "Energy Efficient",
+      "Barn-style Garage",
+    ],
+    client: "Young Family",
+    area: "4,200 sq ft",
+    duration: "12 months",
+  },
+  {
+    id: 9,
+    title: "University Science Center",
+    slug: "university-science-center",
+    category: "Commercial",
+    location: "University Campus",
+    year: "2024",
+    image:
+      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "State-of-the-art science facility with laboratories and lecture halls.",
+    features: [
+      "Research Labs",
+      "Lecture Theaters",
+      "Green Roof",
+      "Natural Lighting",
+    ],
+    client: "State University",
+    area: "200,000 sq ft",
+    duration: "28 months",
+  },
+  {
+    id: 10,
+    title: "Beachfront Condominiums",
+    slug: "beachfront-condominiums",
+    category: "Residential",
+    location: "Ocean Drive",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description: "Luxury 12-story condominium building with ocean views.",
+    features: [
+      "Ocean Views",
+      "Rooftop Pool",
+      "Fitness Center",
+      "Private Beach Access",
+    ],
+    client: "Coastal Development Group",
+    area: "180,000 sq ft",
+    duration: "30 months",
+  },
+  {
+    id: 11,
+    title: "Industrial Warehouse Conversion",
+    slug: "industrial-warehouse-conversion",
+    category: "Renovation",
+    location: "Industrial District",
+    year: "2023",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Conversion of old warehouse into modern creative office space.",
+    features: ["Open Plan", "Original Details", "Event Space", "Rooftop Deck"],
+    client: "Creative Studios Inc.",
+    area: "60,000 sq ft",
+    duration: "14 months",
+  },
+  {
+    id: 12,
+    title: "Mountain Retreat Lodge",
+    slug: "mountain-retreat-lodge",
+    category: "Residential",
+    location: "Aspen Mountains",
+    year: "2024",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+    description:
+      "Luxury mountain lodge with stunning views and rustic elegance.",
+    features: ["Stone Fireplace", "Great Room", "Ski Room", "Outdoor Hot Tub"],
+    client: "Private Client",
+    area: "5,800 sq ft",
+    duration: "16 months",
+  },
+];
