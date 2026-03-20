@@ -8,14 +8,7 @@ const Logo = ({ isDarkText }) => {
   const primaryColor = isDarkText ? "text-primary-500" : "text-primary-400";
   const subTextColor = "text-slate-400";
 
-  // Construction animation sequence on initial load
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setConstructionPhase((prev) => (prev + 1) % 4);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   // Roof reconstruction cycle (repeats every 8 seconds)
   useEffect(() => {
