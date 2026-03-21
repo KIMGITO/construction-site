@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
-import ProjectFilter from "../components/projects/ProjectFilter";
+// import ProjectFilter from "../components/projects/ProjectFilter";
 import { projects } from "../data/projects";
 import ThreeDProjectRotator from "../components/layout/ThreeDRotator";
 import "./Projects.css";
@@ -9,7 +9,7 @@ import "./Projects.css";
 
 
 const Projects = () => {
-  const [filter, setFilter] = useState("all");
+  // const [filter, setFilter] = useState("all");
   // const [visibleProjects, setVisibleProjects] = useState(6);
 
   // const categories = [
