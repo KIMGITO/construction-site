@@ -2,13 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
-  FaTwitter,
+ 
   FaInstagram,
-  FaLinkedin,
   FaMapMarkerAlt,
   FaPhone,
   FaEnvelope,
+  FaYoutube,
 } from "react-icons/fa";
+import { BsTwitterX }from  "react-icons/bs"
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100079212934483"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
@@ -41,7 +42,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
               >
-                <FaTwitter />
+                <BsTwitterX/>
               </a>
               <a
                 href="https://instagram.com"
@@ -52,12 +53,12 @@ const Footer = () => {
                 <FaInstagram />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.youtube.com/@martinmukundi8397"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
               >
-                <FaLinkedin />
+                <FaYoutube />
               </a>
             </div>
           </div>

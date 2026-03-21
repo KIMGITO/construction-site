@@ -12,12 +12,12 @@ const Projects = () => {
   const [filter, setFilter] = useState("all");
   // const [visibleProjects, setVisibleProjects] = useState(6);
 
-  const categories = [
-    { value: "all", label: "All Projects" },
-    { value: "Commercial", label: "Commercial" },
-    { value: "Residential", label: "Residential" },
-    { value: "Renovation", label: "Renovations" },
-  ];
+  // const categories = [
+  //   { value: "all", label: "All Projects" },
+  //   { value: "Commercial", label: "Commercial" },
+  //   { value: "Residential", label: "Residential" },
+  //   { value: "Renovation", label: "Renovations" },
+  // ];
 
   // const filteredProjects =
   //   filter === "all"
@@ -32,7 +32,6 @@ const Projects = () => {
   
 
   return (
-
     <>
       <SEO
         title="Our Construction Projects Portfolio"
@@ -48,14 +47,17 @@ const Projects = () => {
       >
         <div className="page-header">
           <h1>Our Project Portfolio</h1>
-          <p>Excellence in every build - Explore our completed projects</p>
+          <p className="font-primary">
+            Excellence & beauty in every build{" "}
+            <p>Explore our completed projects</p> 
+          </p>
         </div>
 
-        <ProjectFilter
+        {/* <ProjectFilter
           categories={categories}
           activeFilter={filter}
           onFilterChange={setFilter}
-        />
+        /> */}
 
         <ThreeDProjectRotator projects={projects.slice(0, 6)} />
       </motion.div>
