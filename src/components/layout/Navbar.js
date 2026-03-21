@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from "../../assets/icons/Logo";
+import Logo from  "../../assets/icons/Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,14 +32,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out mb-10 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md py-4 shadow-sm"
           : "bg-transparent py-8"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-        <Logo size="md"  />
+      <div className="max-w-7xl mx-auto px-8 flex justify-between items-start">
+        <Logo />
         {/* Desktop Menu - High End Typography */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => {
@@ -69,8 +69,7 @@ const Navbar = () => {
             );
           })}
         </div>
-
-        {/* Refined Mobile Toggle */}
+        {/* mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden relative z-[110] p-2 focus:outline-none"
@@ -86,7 +85,7 @@ const Navbar = () => {
                   exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 >
-                  <X className="w-8 h-8 text-primary-500" />
+                  <X className="w-8 h-8 text-primary-500 m-4" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -107,7 +106,7 @@ const Navbar = () => {
           </div>
         </button>
 
-        {/* Full Screen Mobile Interaction */}
+        {/* Full Screen Mobile  */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -115,9 +114,10 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: "-100%" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 h-screen w-full bg-secondary-900 z-[100] flex flex-col justify-center items-center"
+              className="fixed inset-0 h-screen w-full bg-secondary-900 z-[100] flex flex-col justify-start  items-center overflow-y-scroll no-scrollbar"
             >
-              <div className="flex flex-col gap-8 text-center">
+              <div className="flex flex-col gap-8 text-center mt-16 ">
+                <Logo />
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.path}

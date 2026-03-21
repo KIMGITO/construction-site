@@ -149,7 +149,7 @@ const HeroSection = () => {
     : 0;
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative  max-h-[1000px] md:min-h-[600px] md:h-screen overflow-scroll">
       {/* Background Image with Overlay */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -168,7 +168,7 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-full flex items-center mt-16">
         <div className="container mx-auto px-5 text-white">
           <motion.div
             key={currentSlide}
@@ -255,8 +255,6 @@ const HeroSection = () => {
       >
         <FaChevronRight className="text-lg md:text-xl" />
       </button> */}
-
-      
 
       {/* Timer Indicator Ring */}
       {/* {isPlaying && (
