@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
 // import ProjectFilter from "../components/projects/ProjectFilter";
