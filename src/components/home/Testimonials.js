@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 import "./Testimonials.css";
+import { COMPANY } from "@utils/constants";
 
 const Testimonials = () => {
   const testimonials = [
@@ -9,7 +10,7 @@ const Testimonials = () => {
       name: "John Smith",
       role: "CEO, Tech Innovations Inc.",
       content:
-        "Martine Construction delivered our new headquarters ahead of schedule and under budget. Their attention to detail and professional approach made the entire process seamless.",
+       ` ${COMPANY.name} delivered our new headquarters ahead of schedule and under budget. Their attention to detail and professional approach made the entire process seamless.`,
       rating: 5,
       image: "https://randomuser.me/api/portraits/men/1.jpg",
     },

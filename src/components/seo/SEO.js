@@ -1,3 +1,4 @@
+import { COMPANY, CONTACT } from "utils/constants";
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
@@ -10,28 +11,24 @@ const SEO = ({
   type = "website",
   publishedTime,
   modifiedTime,
-  author = "Martine Construction",
+  author = `${COMPANY.name}`,
   section,
   tags = [],
 }) => {
-  const siteTitle = "Martine Construction";
-  const siteUrl = "https://martineconstruction.com";
-  const defaultImage = "https://martineconstruction.com/images/og-image.jpg";
-  const twitterHandle = "@MartineConst";
+  const siteTitle = `${COMPANY.name}`;
+  const siteUrl = "https://martineconstructions.netlify.app/";
+  const defaultImage = "";
+  const twitterHandle = "@";
 
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   const defaultDescriptions = {
-    "/": "Martine Construction - Premier construction company with 25+ years of excellence. Specializing in commercial, residential, renovations, and interior finishing.",
-    "/about":
-      "Learn about Martine Construction's 25+ year history, our mission, values, and the expert team behind our successful construction projects.",
-    "/services":
-      "Explore Martine Construction's comprehensive services: commercial construction, residential building, renovations, interior finishing, and project management.",
-    "/projects":
-      "View Martine Construction's portfolio of successful commercial and residential projects. See our quality craftsmanship and attention to detail.",
-    "/contact":
-      "Contact Martine Construction for consultations, quotes, and inquiries. Let us bring your construction vision to life.",
+    "/": `${COMPANY.name} - Premier construction company with 25+ years of excellence. Specializing in commercial, residential, renovations, and interior finishing.`,
+    "/about": `Learn about ${COMPANY.name}'s 25+ year history, our mission, values, and the expert team behind our successful construction projects.`,
+    "/services": `Explore ${COMPANY.name}'s comprehensive services: commercial construction, residential building, renovations, interior finishing, and project management.`,
+    "/projects": `View ${COMPANY.name}'s portfolio of successful commercial and residential projects. See our quality craftsmanship and attention to detail.`,
+    "/contact": `Contact ${COMPANY.name} for consultations, quotes, and inquiries. Let us bring your construction vision to life.`,
   };
 
   const metaDescription =
@@ -54,34 +51,34 @@ const SEO = ({
           datePublished: publishedTime,
           dateModified: modifiedTime || publishedTime,
           author: {
-            "@type": "Person",
+            "@type": "kim",
             name: author,
           },
           keywords: tags.join(", "),
         }
       : {
           address: {
-            "@type": "PostalAddress",
-            streetAddress: "123 Construction Avenue",
-            addressLocality: "Building City",
+            "@type": "",
+            streetAddress: "Thika Rd",
+            addressLocality: "Juja",
             addressRegion: "ST",
-            postalCode: "12345",
-            addressCountry: "US",
+            postalCode: "",
+            addressCountry: "Kenya",
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: "40.7128",
-            longitude: "-74.0060",
+            latitude: "-1.1324535",
+            longitude: "37.097837",
           },
-          telephone: "+1-555-123-4567",
-          email: "info@martineconstruction.com",
-          openingHours: "Mo-Fr 08:00-18:00",
-          priceRange: "$$$",
+          telephone: `${CONTACT.phone.primary}`,
+          email: `${CONTACT.email.info}`,
+          openingHours: "Mo-St 08:00-18:00",
+          priceRange: "KSH",
           sameAs: [
-            "https://facebook.com/martineconstruction",
-            "https://instagram.com/martineconstruction",
-            "https://linkedin.com/company/martineconstruction",
-            "https://twitter.com/martineconst",
+            // "https://facebook.com/martineconstruction",
+            // "https://instagram.com/martineconstruction",
+            // "https://linkedin.com/company/martineconstruction",
+            // "https://twitter.com/martineconst",
           ],
         }),
   };

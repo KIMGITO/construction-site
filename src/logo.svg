@@ -58,6 +58,6 @@
   <line x1="10" y1="85" x2="170" y2="85" stroke="#c9a959" stroke-width="3" stroke-linecap="round"/>
   
   <!-- Text -->
-  <text x="90" y="32" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="22" font-weight="900" fill="#ffffff" letter-spacing="-0.5">MARTIN</text>
-  <text x="90" y="98" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="8" font-weight="bold" fill="#94a3b8" letter-spacing="3">CONSTRUCTION</text>
+  <text x="90" y="32" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="22" font-weight="900" fill="#ffffff" letter-spacing="-0.5">INTERLOCKING</text>
+  <text x="90" y="98" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="8" font-weight="bold" fill="#94a3b8" letter-spacing="3">BLOCK BUILDERS</text>
 </svg>

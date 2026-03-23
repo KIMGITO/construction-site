@@ -1,5 +1,6 @@
 import React from "react";
 import "./Map.css";
+import { COMPANY } from "utils/constants";
 
 const Map = () => {
   return (
@@ -11,7 +12,7 @@ const Map = () => {
         style={{ border: 0, borderRadius: "10px" }}
         allowFullScreen=""
         loading="lazy"
-        title="Martine Construction Location"
+        title={`${COMPANY.name}`}
         className="map-iframe"
       ></iframe>
     </div>

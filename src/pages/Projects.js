@@ -1,12 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
-// import ProjectFilter from "../components/projects/ProjectFilter";
 import { projects } from "../data/projects";
 import ThreeDProjectRotator from "../components/layout/ThreeDRotator";
 import "./Projects.css";
-
-
+import { COMPANY } from "utils/constants";
 
 const Projects = () => {
   // const [filter, setFilter] = useState("all");
@@ -28,15 +26,12 @@ const Projects = () => {
   //   setVisibleProjects((prev) => Math.min(prev + 3, filteredProjects.length));
   // };
 
-  
-  
-
   return (
     <>
       <SEO
         title="Our Construction Projects Portfolio"
         url="/projects"
-        description="View Martine Construction's portfolio of successful commercial and residential projects."
+        description={`View ${COMPANY.name} portfolio of successful commercial and residential projects.`}
       />
 
       <motion.div
@@ -49,7 +44,7 @@ const Projects = () => {
           <h1>Our Project Portfolio</h1>
           <p className="font-primary">
             Excellence & beauty in every build{" "}
-            <p>Explore our completed projects</p> 
+            <p>Explore our completed projects</p>
           </p>
         </div>
 

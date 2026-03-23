@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from  "assets/icons/Logo";
+import { CONTACT } from "utils/constants";
 
 
 const Navbar = () => {
@@ -148,7 +149,7 @@ const Navbar = () => {
                 transition={{ delay: 0.8 }}
                 className="absolute bottom-12 text-white/40 font-secondary text-xs uppercase tracking-widest"
               >
-                Inquiries: hello@martin.com
+                Inquiries: {CONTACT.email.info}
               </motion.div>
             </motion.div>
           )}

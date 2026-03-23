@@ -10,7 +10,7 @@ const NotFound = () => {
       <SEO
         title="Page Not Found"
         url="/404"
-        description="The page you're looking for doesn't exist. Return to Martine Construction homepage."
+        description="The page you're looking for doesn't exist. Return to Homepage."
       />
 
       <motion.div

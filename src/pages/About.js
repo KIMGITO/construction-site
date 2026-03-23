@@ -16,7 +16,7 @@ const About = () => {
       <SEO
         title="About Us"
         url="/about"
-        description="Learn about INTERLOCKING BLOCKS BUILDERS' journey since 2020, specializing in interlocking building technology, block production, roofing, plumbing, electrical, finishing, painting, renovation, landscaping, cabro, and skimming services."
+        description={`Learn about ${COMPANY.name} journey since 2020, specializing in interlocking building technology, block production, roofing, plumbing, electrical, finishing, painting, renovation, landscaping, cabro, and skimming services.`}
       />
 
       <motion.div

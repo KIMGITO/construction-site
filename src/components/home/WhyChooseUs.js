@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaMedal, FaClock, FaUsers, FaLeaf } from "react-icons/fa";
 import "./WhyChooseUs.css";
+import { COMPANY } from "utils/constants";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -39,7 +40,7 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           className="section-header"
         >
-          <h2>Why Choose Martin Construction?</h2>
+          <h2>Why Choose {COMPANY.name}?</h2>
           <p>We deliver excellence through experience and dedication</p>
         </motion.div>
 
