@@ -60,7 +60,7 @@ const ServicesPreview = () => {
                   {service.description}
                 </p>
                 <Link
-                  to={`/services/${service.slug}`}
+                  to={`/services`}
                   className="mt-4 inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 transition-colors duration-300 text-sm font-semibold"
                 >
                   Learn More
