@@ -30,6 +30,37 @@
   opacity: 0.9;
 }
 
+/* Modal Animation */
+.modal-enter {
+  opacity: 0;
+}
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.modal-exit {
+  opacity: 1;
+}
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Custom Scrollbar for Modal */
+.services-page ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.services-page ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.services-page ::-webkit-scrollbar-thumb {
+  background: #c9a959;
+  border-radius: 3px;
+}
+
 @media screen and (max-width: 768px) {
   .services-intro p {
     font-size: 1rem;

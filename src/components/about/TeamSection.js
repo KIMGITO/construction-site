@@ -1,117 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { TEAM } from "../../utils/constants";
 import "./TeamSection.css";
 
 const TeamSection = () => {
-  const team = [
-    {
-      name: "Martin Mukundi",
-      role: "Founder & CEO",
-      bio: "Martin founded Martin Construction in 2020 with a vision to revolutionize the industry through interlocking building technology. With over 5 years of experience in innovative construction methods, he leads with passion and expertise.",
-      image:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      linkedin: "#",
-      email: "martin@martinconstruction.com",
-    },
+  const [imageErrors, setImageErrors] = useState({});
 
-    {
-      name: "Peter Kariuki",
-      role: "Construction Manager",
-      bio: "Peter manages our on-site construction teams with over 8 years of experience in interlocking and block construction. He ensures quality control and timely delivery of all projects.",
-      image:
-        "https://plus.unsplash.com/premium_photo-1702596364451-0bb71af4a291?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YWZyaWNhbnxlbnwwfHwwfHx8MA%3D%3D",
-      linkedin: "#",
-      email: "peter@martinconstruction.com",
-    },
-    {
-      name: "James Otieno",
-      role: "Technical Director - Interlocking Systems",
-      bio: "James is our interlocking building specialist with expertise in precision engineering and structural integrity. He ensures every interlocking block project meets the highest standards of durability and safety.",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      linkedin: "#",
-      email: "james@martinconstruction.com",
-    },
-    {
-      name: "Grace Wanjiku",
-      role: "Chief Operating Officer",
-      bio: "Grace oversees daily operations and ensures every project meets our quality standards. With a background in project management and business administration, she keeps all projects on track and within budget.",
-      image:
-        "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      linkedin: "#",
-      email: "grace@martinconstruction.com",
-    },
-    {
-      name: "Mary Muthoni",
-      role: "Design & Architecture Lead",
-      bio: "Mary brings creative vision to every project with innovative design solutions. Her architectural expertise ensures that each building is both beautiful and functional, maximizing space and natural light.",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      linkedin: "#",
-      email: "mary@martinconstruction.com",
-    },
-
-    {
-      name: "Lucy Achieng",
-      role: "Renovation Specialist",
-      bio: "Lucy specializes in transforming existing spaces through expert renovation services. Her attention to detail and creative solutions breathe new life into older buildings while preserving their character.",
-      image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      linkedin: "#",
-      email: "lucy@martinconstruction.com",
-    },
-  ];
+  const handleImageError = (index) => {
+    setImageErrors((prev) => ({ ...prev, [index]: true }));
+  };
 
   return (
-    <section className="team-section">
-      <div className="container">
+    <section className="team-section py-20 bg-secondary-50">
+      <div className="container mx-auto px-5">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="section-header"
+          className="text-center mb-16"
         >
-          <h2>Meet Our Leadership Team</h2>
-          <p>
+          <h2 className="text-3xl md:text-4xl font-primary font-bold text-secondary-500 mb-4 relative inline-block">
+            Meet Our Leadership Team
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary-500"></span>
+          </h2>
+          <p className="text-lg text-secondary-400">
             Dedicated professionals building Kenya's future with interlocking
             technology
           </p>
         </motion.div>
 
-        <div className="team-grid">
-          {team.slice(0,4).map((member, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {TEAM.slice(0,3).map((member, index) => (
             <motion.div
               key={index}
-              className="team-card"
+              className="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center pb-6"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="team-image-wrapper">
-                <div className="team-image-circle">
-                  <img src={member.image} alt={member.name} loading="lazy" />
-                  <div className="team-social-overlay">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="social-icon"
-                    >
-                      <FaLinkedin />
-                    </a>
-                    <a href={`mailto:${member.email}`} className="social-icon">
-                      <FaEnvelope />
-                    </a>
-                  </div>
+              <div className="team-image-wrapper pt-8 px-8 pb-4 bg-gradient-to-b from-secondary-50 to-white">
+                <div className="team-image-circle w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg border-4 border-primary-500 bg-secondary-100 flex items-center justify-center">
+                  {!imageErrors[index] && member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                      onError={() => handleImageError(index)}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
+                      <span className="text-3xl font-bold text-white">
+                        {member.initials}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
-              <div className="team-info">
-                <h3>{member.name}</h3>
-                <p className="team-role">{member.role}</p>
-                <p className="team-bio">{member.bio}</p>
+              <div className="team-info px-6">
+                <h3 className="text-xl font-primary font-bold text-secondary-500 mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-primary-500 font-semibold text-sm uppercase tracking-wider mb-3">
+                  {member.role}
+                </p>
+                <p className="text-secondary-400 text-sm leading-relaxed">
+                  {member.bio}
+                </p>
               </div>
             </motion.div>
           ))}

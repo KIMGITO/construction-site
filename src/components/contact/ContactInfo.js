@@ -2,37 +2,35 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 import "./ContactInfo.css";
+import { CONTACT, HOURS } from "utils/constants";
 
 const ContactInfo = () => {
   const contactDetails = [
     {
       icon: <FaMapMarkerAlt />,
       title: "Visit Us",
-      details: ["123 Construction Avenue", "Building City, ST 12345"],
-      link: "https://maps.google.com/?q=123+Construction+Avenue+Building+City+ST+12345",
+      details: [`${CONTACT.address.full}`],
+      link: "https://www.google.com/maps/place/Juja/@-1.1352471,36.4933926,88245m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182f4616a21d035d:0xd46c6efa3589f45f!8m2!3d-1.1018224!4d37.0144027!16s%2Fm%2F0j26w1m!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: <FaPhone />,
       title: "Call Us",
-      details: ["Main: (555) 123-4567", "Emergency: (555) 123-4568"],
-      link: "tel:+15551234567",
+      details: [`Primary: ${CONTACT.phone.primary}`],
+      link: `tel${CONTACT.phone.primary}`,
     },
     {
       icon: <FaEnvelope />,
       title: "Email Us",
-      details: [
-        "info@martineconstruction.com",
-        "projects@martineconstruction.com",
-      ],
-      link: "mailto:info@martineconstruction.com",
+      details: [`${CONTACT.email.info}`],
+      link: `mailto:${CONTACT.email.info}`,
     },
     {
       icon: <FaClock />,
       title: "Office Hours",
       details: [
-        "Monday - Friday: 8:00 AM - 6:00 PM",
-        "Saturday: 9:00 AM - 2:00 PM",
-        "Sunday: Closed",
+        HOURS.weekday,
+        HOURS.saturday,
+        HOURS.sunday
       ],
       link: null,
     },

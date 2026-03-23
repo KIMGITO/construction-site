@@ -46,7 +46,7 @@ const HeroSection = () => {
       timeoutRef.current = setTimeout(() => {
         setIsDeleting(true);
         setTypingComplete(false);
-      }, 2000);
+      }, 10000);
       return;
     }
 

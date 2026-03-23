@@ -19,8 +19,10 @@
   cursor: pointer;
 }
 
+
 .service-card:hover {
   box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon {
@@ -39,3 +41,6 @@
   color: var(--text-light);
   line-height: 1.6;
 }   
+.service-card .service-icon svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}

@@ -36,19 +36,117 @@ export const TIMELINES = [
   { value: "planning", label: "Just planning" },
 ];
 
-export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/martineconstruction",
-  instagram: "https://instagram.com/martineconstruction",
-  linkedin: "https://linkedin.com/company/martineconstruction",
-  twitter: "https://twitter.com/martineconst",
+// Company Info
+export const COMPANY = {
+  name: process.env.REACT_APP_COMPANY_NAME || "INTERLOCKING BLOCKS BUILDERS",
+  tagline:
+    process.env.REACT_APP_COMPANY_TAGLINE ||
+    "Building futures, One block at a time",
+  description:
+    process.env.REACT_APP_COMPANY_DESCRIPTION ||
+    "We build affordable, durable, and modern homes that help our clients save up to 30% on construction costs through innovative designs, efficient project management, timely delivery, and cost-effective building solutions.",
+  founder: process.env.REACT_APP_COMPANY_FOUNDER || "Martin Mukundi Mbogo",
+  established: process.env.REACT_APP_COMPANY_ESTABLISHED || "2020",
+  yearsExperience: parseInt(process.env.REACT_APP_YEARS_EXPERIENCE) || 5,
+  savingsPercentage: parseInt(process.env.REACT_APP_SAVINGS_PERCENTAGE) || 30,
+  projectsCompleted: parseInt(process.env.REACT_APP_PROJECTS_COMPLETED) || 150,
 };
 
-export const CONTACT_INFO = {
-  address: "123 Construction Avenue, Building City, ST 12345",
-  phone: "+1-555-123-4567",
-  email: "info@martineconstruction.com",
-  hours: "Mon-Fri: 8:00 AM - 6:00 PM, Sat: 9:00 AM - 2:00 PM",
+// Contact Info
+export const CONTACT = {
+  phone: {
+    primary: process.env.REACT_APP_PHONE_PRIMARY || "+254 740 074204",
+    secondary: process.env.REACT_APP_PHONE_SECONDARY || "+254 740 074204",
+    whatsapp: process.env.REACT_APP_WHATSAPP || "+254 740 074204",
+  },
+  email: {
+    info: process.env.REACT_APP_EMAIL_INFO || "martinmukundi010@gmail.com",
+    sales: process.env.REACT_APP_EMAIL_SALES || "martinmukundi010@gmail.com",
+  },
+  address: {
+    street: process.env.REACT_APP_ADDRESS_STREET || "Thika Road",
+    area: process.env.REACT_APP_ADDRESS_AREA || "Juja",
+    city: process.env.REACT_APP_ADDRESS_CITY || "Juja",
+    county: process.env.REACT_APP_ADDRESS_COUNTY || "Kiambu",
+    country: process.env.REACT_APP_ADDRESS_COUNTRY || "Kenya",
+    full: `${process.env.REACT_APP_ADDRESS_STREET || "Thika Road"}, ${
+      process.env.REACT_APP_ADDRESS_AREA || "Juja"
+    }, ${process.env.REACT_APP_ADDRESS_COUNTRY || "Kenya 🇰🇪"}`,
+  },
 };
+
+// Social Media
+export const SOCIAL = {
+  facebook:
+    process.env.REACT_APP_FACEBOOK_URL ||
+    "https://facebook.com/INTERLOCKINGBLOCKSBUILDERS",
+  tiktok:
+    process.env.REACT_APP_TIKTOK_URL ||
+    "https://tiktok.com/@interlockingblocksbuilders",
+  youtube:
+    process.env.REACT_APP_YOUTUBE_URL ||
+    "https://youtube.com/@interlockingblocksbuilders",
+  instagram:
+    process.env.REACT_APP_INSTAGRAM_URL ||
+    "https://instagram.com/interlockingblocksbuilders",
+  handle: process.env.REACT_APP_SOCIAL_HANDLE || "INTERLOCKING BLOCKS BUILDERS",
+};
+
+// Business Hours
+export const HOURS = {
+  weekday:
+    process.env.REACT_APP_HOURS_WEEKDAY || "Monday - Friday: 8:00 AM - 5:00 PM",
+  saturday:
+    process.env.REACT_APP_HOURS_SATURDAY || "Saturday: 8:00 AM - 5:00 PM",
+  sunday: process.env.REACT_APP_HOURS_SUNDAY || " Closed",
+};
+
+// Services
+export const SERVICES_LIST = (
+  process.env.REACT_APP_SERVICES ||
+  "Affordable home construction,Block production,Roofing installation and repair,Plumbing and electrical services,Interior and exterior finishing,Professional painting services,Home renovation and remodeling,Landscaping design and installation,Cabro production and installation,Wall skimming and plaster finishing"
+).split(",");
+
+// Team Members
+// export const TEAM = {
+//   ceo: process.env.REACT_APP_TEAM_CEO || "Martin Mukundi Mbogo",
+//   blocksProduction:
+//     process.env.REACT_APP_TEAM_BLOCKS_PRODUCTION || "Dennis Murimi",
+//   assistant: process.env.REACT_APP_TEAM_ASSISTANT || "Daniel Simiyu",
+//   secretary: process.env.REACT_APP_TEAM_SECRETARY || "Silvia Nyakio",
+// };
+export const TEAM = [
+  {
+    name: process.env.REACT_APP_TEAM_CEO_NAME || "Martin Mukundi",
+    role: process.env.REACT_APP_TEAM_CEO_ROLE || "Founder & CEO",
+    bio:
+      process.env.REACT_APP_TEAM_CEO_BIO ||
+      "Martin founded Interlocking Blocks Builders in 2020 with a vision to revolutionize the construction industry through interlocking building technology. With over 5 years of experience in innovative construction methods, he leads the company with passion and expertise.",
+    image: process.env.REACT_APP_TEAM_CEO_IMAGE || null,
+    initials: "MM",
+  },
+  {
+    name: process.env.REACT_APP_TEAM_BLOCKS_PRODUCTION || "Dennis Murimi",
+    role: "Head of Blocks Production",
+    bio: "Dennis oversees the production of high-quality interlocking blocks, ensuring durability, efficiency, and consistent supply for all construction projects.",
+    image: null,
+    initials: "DM",
+  },
+  {
+    name: process.env.REACT_APP_TEAM_ASSISTANT || "Daniel Simiyu",
+    role: "Operations Assistant",
+    bio: "Daniel assists in coordinating daily operations, project logistics, and ensuring smooth workflow across construction and production teams.",
+    image: null,
+    initials: "DS",
+  },
+  {
+    name: process.env.REACT_APP_TEAM_SECRETARY || "Silvia Nyakio",
+    role: "Administrative Secretary",
+    bio: "Silvia manages communication, documentation, and administrative coordination to ensure efficient company operations.",
+    image: null,
+    initials: "SN",
+  },
+];
 
 export const ANIMATION_DURATIONS = {
   fast: 0.3,

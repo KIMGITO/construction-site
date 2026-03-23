@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
- 
   FaInstagram,
   FaMapMarkerAlt,
   FaPhone,
+  FaWhatsapp,
   FaEnvelope,
   FaYoutube,
 } from "react-icons/fa";
-import { BsTwitterX }from  "react-icons/bs"
+import { BsTwitterX } from "react-icons/bs";
+import { COMPANY, CONTACT, SERVICES_LIST } from "utils/constants";
 
 const Footer = () => {
   return (
@@ -20,12 +21,10 @@ const Footer = () => {
           {/* Company Info Section */}
           <div>
             <h3 className="font-primary text-3xl mb-5 text-primary-500">
-              Martin Constructions
+              {COMPANY.name}
             </h3>
             <p className="font-secondary leading-relaxed mb-5 text-gray-300">
-              Building excellence since 2020. We transform visions into
-              architectural masterpieces with precision, passion, and
-              professionalism.
+              {COMPANY.description}
             </p>
             <div className="flex gap-4">
               <a
@@ -42,7 +41,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
               >
-                <BsTwitterX/>
+                <BsTwitterX />
               </a>
               <a
                 href="https://instagram.com"
@@ -118,11 +117,12 @@ const Footer = () => {
               Our Services
             </h4>
             <ul className="space-y-2.5 text-gray-300">
-              <li>Commercial Constructions</li>
-              <li>Residential Building</li>
-              <li>Renovations</li>
-              <li>Interior Finishing</li>
-              <li>Project Management</li>
+              {SERVICES_LIST.map((service) => (
+                <li>
+                  {"✔ "}
+                  {service}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -134,15 +134,50 @@ const Footer = () => {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 flex-shrink-0" />
-                <span>123 Moi Ave, Builder City, ST 12345</span>
+                <a
+                  href={`https://maps.google.com/?q=${encodeURIComponent(
+                    CONTACT.address.area
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-500 transition-colors"
+                >
+                  {CONTACT.address.full}
+                </a>
               </li>
+
               <li className="flex items-center gap-3">
                 <FaPhone className="flex-shrink-0" />
-                <span>(+254)70 123-4567</span>
+                <a
+                  href={`tel:${CONTACT.phone.primary.replace(/\s/g, "")}`}
+                  className="hover:text-primary-500 transition-colors"
+                >
+                  {CONTACT.phone.primary}
+                </a>
               </li>
+
+              <li className="flex items-center gap-3">
+                <FaWhatsapp className="flex-shrink-0" />
+                <a
+                  href={`https://wa.me/${CONTACT.phone.primary
+                    .replace(/\s/g, "")
+                    .replace("+", "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary-500 transition-colors"
+                >
+                  {CONTACT.phone.primary}
+                </a>
+              </li>
+
               <li className="flex items-center gap-3">
                 <FaEnvelope className="flex-shrink-0" />
-                <span>info@martinconstructions.com</span>
+                <a
+                  href={`mailto:${CONTACT.email.info}`}
+                  className="hover:text-primary-500 transition-colors"
+                >
+                  {CONTACT.email.info}
+                </a>
               </li>
             </ul>
           </div>
@@ -151,7 +186,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="text-center pt-5 border-t border-white/10 text-gray-300">
           <p>
-            &copy; {new Date().getFullYear()} Martin Constructions. All rights
+            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights
             reserved.
           </p>
         </div>
