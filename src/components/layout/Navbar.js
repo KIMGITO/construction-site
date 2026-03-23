@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Logo from  "../../assets/icons/Logo";
+import Logo from  "assets/icons/Logo";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
