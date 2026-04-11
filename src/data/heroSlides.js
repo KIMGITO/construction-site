@@ -2,7 +2,7 @@ export const heroSlides = [
   {
     id: 1,
     bgImage:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901638/IMG-20260408-WA0045_wzorqv.jpg",
     title: "Build Smart, Save Big",
     subtitle: "Save up to 30% on construction costs",
     description:
@@ -10,25 +10,25 @@ export const heroSlides = [
     primaryCTA: { text: "View Our Work", link: "/projects" },
     secondaryCTA: { text: "Get Free Quote", link: "/contact" },
     overlay: "from-secondary-900/90 to-primary-500/80",
-    tag: "Save 30%",
+    tag: "1. The Foundation",
   },
   {
     id: 2,
     bgImage:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/e_gen_background_replace:prompt_a%20paved%20background%0A/worker-builds-cinder-block-wall-new-home_odfol6.png",
     title: "Premium Interlocking Blocks",
     subtitle: "Colored & non-colored options available",
     description:
-      "Our high-quality interlocking blocks come in various colors and finishes. No plastering needed - build beautiful, durable walls that stand the test of time with superior strength and insulation.",
+      "Our high-quality interlocking blocks come in various colors and finishes. No plastering needed - build beautiful, durable walls that stand the test of time with superior strength.",
     primaryCTA: { text: "View Blocks", link: "/services/block-production" },
     secondaryCTA: { text: "Order Now", link: "/contact" },
     overlay: "from-secondary-900/85 to-primary-600/75",
-    tag: "Quality Blocks",
+    tag: "2. Wall Construction",
   },
   {
     id: 3,
     bgImage:
-      "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1775901642/IMG-20260408-WA0007_imatoq.jpg",
     title: "Expert Roofing Services",
     subtitle: "Professional installation & repair",
     description:
@@ -36,16 +36,16 @@ export const heroSlides = [
     primaryCTA: { text: "Roofing Services", link: "/services/roofing" },
     secondaryCTA: { text: "Get Quote", link: "/contact" },
     overlay: "from-secondary-900/80 to-primary-600/70",
-    tag: "Roofing Experts",
+    tag: "3. Roofing",
   },
   {
     id: 4,
     bgImage:
       "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Plumbing & Electrical",
+    title: "Plumbing & Electrical Installation",
     subtitle: "Certified professionals for safe installations",
     description:
-      "Our certified plumbers and electricians ensure all installations meet safety standards. From wiring to water systems, we deliver reliable, efficient solutions for your home or business.",
+      "Our certified plumbers and electricians ensure all installations meet safety standards. Reliable, efficient solutions for your home or business wiring and water systems.",
     primaryCTA: {
       text: "Plumbing Services",
       link: "/services/plumbing-electrical",
@@ -55,84 +55,71 @@ export const heroSlides = [
       link: "/services/plumbing-electrical",
     },
     overlay: "from-secondary-900/85 to-primary-500/75",
-    tag: "Certified Experts",
+    tag: "4. Interior Systems",
   },
   {
     id: 5,
     bgImage:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Beautiful Finishes",
-    subtitle: "Transform your space with expert craftsmanship",
+      "https://images.unsplash.com/photo-1765371514211-9b93c204bb81?w=1920&h=1080&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHdhbGwlMjBmaW5pc2h8ZW58MHx8MHx8fDA%3D",
+    title: "Wall Skimming & Plastering",
+    subtitle: "Smooth, flawless walls",
     description:
-      "Our finishing services include wall skimming, plastering, and smooth surfaces ready for painting. Achieve flawless interiors and exteriors that enhance your home's beauty and value.",
-    primaryCTA: { text: "Finishing Services", link: "/services/finishing" },
-    secondaryCTA: { text: "View Gallery", link: "/projects" },
-    overlay: "from-secondary-900/90 to-primary-600/80",
-    tag: "Expert Finishing",
+      "Achieve perfectly smooth walls with our expert skimming services. The perfect foundation for painting, creating professional-grade surfaces throughout your home.",
+    primaryCTA: { text: "Skimming Services", link: "/services/skimming" },
+    secondaryCTA: { text: "Get Quote", link: "/contact" },
+    overlay: "from-secondary-900/85 to-primary-600/70",
+    tag: "5. Wall Finishing",
   },
   {
     id: 6,
     bgImage:
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill/v1775907742/close-up-hand-painting-wall-with-roller_rmnmfj.jpg",
     title: "Professional Painting",
     subtitle: "Bring color to life with flawless finishes",
     description:
-      "Our professional painters deliver immaculate results with premium paints. From interior walls to exterior facades, we ensure smooth, even coverage that transforms your space beautifully.",
+      "Our professional painters deliver immaculate results with premium paints. From interior walls to exterior facades, we ensure smooth, even coverage.",
     primaryCTA: { text: "Painting Services", link: "/services/painting" },
     secondaryCTA: { text: "Color Consultation", link: "/contact" },
     overlay: "from-secondary-900/90 to-primary-500/80",
-    tag: "Quality Painting",
+    tag: "6. Painting",
   },
   {
     id: 7,
     bgImage:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Renovation Experts",
-    subtitle: "Transform your existing space",
+      "https://images.unsplash.com/photo-1763462980602-07eb86874ac4?w=1920&h=1080&fit=crop&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGF2aW5nJTIwc3RvbmVzfGVufDB8fDB8fHww",
+    title: "Landscaping & Cabro installation",
+    subtitle: "Beautiful outdoor spaces",
     description:
-      "Breathe new life into your home with our comprehensive renovation services. Kitchen makeovers, bathroom upgrades, or complete home transformations - we handle it all with attention to detail.",
-    primaryCTA: { text: "Renovation Services", link: "/services/renovation" },
-    secondaryCTA: { text: "Get Consultation", link: "/contact" },
-    overlay: "from-secondary-900/85 to-primary-600/75",
-    tag: "Renovations",
+      "Transform your compound with professional landscaping and cabro paving. From gardens to driveways, we create stunning outdoor spaces that enhance property value.",
+    primaryCTA: { text: "Landscaping", link: "/services/landscaping" },
+    secondaryCTA: { text: "Cabro Paving", link: "/services/cabro" },
+    overlay: "from-secondary-900/90 to-primary-500/80",
+    tag: "7. Exteriors",
   },
   {
     id: 8,
     bgImage:
-      "https://images.unsplash.com/photo-1558904541-efa843c96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Landscaping & Cabro",
-    subtitle: "Beautiful outdoor spaces",
+      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1920&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
+    title: "Renovation Experts",
+    subtitle: "Transform your existing space",
     description:
-      "Transform your compound with professional landscaping and high-quality cabro paving. From gardens to driveways and walkways, we create stunning outdoor spaces that enhance your property.",
-    primaryCTA: { text: "Landscaping", link: "/services/landscaping" },
-    secondaryCTA: { text: "Cabro Paving", link: "/services/cabro" },
-    overlay: "from-secondary-900/90 to-primary-500/80",
-    tag: "Outdoor Spaces",
+      "Breathe new life into your home with our comprehensive renovation services. Kitchen makeovers, bathroom upgrades, or complete home transformations.",
+    primaryCTA: { text: "Renovation Services", link: "/services/renovation" },
+    secondaryCTA: { text: "Get Consultation", link: "/contact" },
+    overlay: "from-secondary-900/85 to-primary-600/75",
+    tag: "Maintenance",
   },
   {
     id: 9,
     bgImage:
-      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    title: "Wall Skimming & Plastering",
-    subtitle: "Smooth, flawless walls",
-    description:
-      "Achieve perfectly smooth walls with our expert skimming and plaster finishing services. The perfect foundation for painting and decorating, creating professional-grade surfaces throughout your home.",
-    primaryCTA: { text: "Skimming Services", link: "/services/skimming" },
-    secondaryCTA: { text: "Get Quote", link: "/contact" },
-    overlay: "from-secondary-900/85 to-primary-600/70",
-    tag: "Smooth Finish",
-  },
-  {
-    id: 10,
-    bgImage:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,f_auto,c_fill/v1775901628/IMG-20260408-WA0025_orvuxn.jpg",
     title: "Your Dream Home Awaits",
-    subtitle: "Let's build something extraordinary together",
+    subtitle: "Ready to move in or lease",
     description:
-      "From affordable homes to luxury finishes, INTERLOCKING BLOCKS BUILDERS delivers quality, reliability, and innovation. Save 30% on construction costs with our interlocking technology.",
+      "From affordable homes to luxury finishes, we deliver quality and innovation. Save 30% on your next building project with our interlocking technology.",
     primaryCTA: { text: "Start Your Project", link: "/contact" },
     secondaryCTA: { text: "View Portfolio", link: "/projects" },
     overlay: "from-secondary-900/90 to-primary-600/80",
-    tag: "Contact Us Today",
+    tag: "Completed Home",
   },
 ];

@@ -28,7 +28,7 @@ export const services = [
       "Custom designs to fit your budget",
     ],
     image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901634/IMG-20260408-WA0035_xrlron.jpg",
   },
   {
     id: 2,

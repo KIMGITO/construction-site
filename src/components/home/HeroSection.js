@@ -154,7 +154,7 @@ const HeroSection = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0.4, scale: 1.6 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5 }}
@@ -163,7 +163,7 @@ const HeroSection = () => {
             backgroundImage: `url(${currentData.bgImage})`,
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/80 to-primary-500/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/60 to-primary-500/40"></div>
         </motion.div>
       </AnimatePresence>
 
@@ -177,14 +177,12 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-4xl"
           >
-            {/* Typewriter Title with Progress Bar */}
             <div className="relative">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight drop-shadow-lg min-h-[120px] md:min-h-[150px]">
                 {typedText}
                 <span className="animate-pulse ml-1 text-primary-500">|</span>
               </h1>
 
-              {/* Typing Progress Bar */}
               <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-white/20 rounded-full overflow-hidden">
                 <motion.div
                   className="h-full bg-primary-500"
@@ -195,26 +193,36 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-xl md:text-2xl mb-4 font-light"
+              className="text-xl md:text-2xl mb-4 font-bold"
             >
               {currentData.subtitle}
             </motion.p>
 
             {/* Description */}
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-lg md:text-xl mb-8 leading-relaxed max-w-2xl"
+              className="relative mb-8 max-w-2xl group"
             >
-              {currentData.description}
-            </motion.p>
+              {/* The Seamless Background Layer */}
+              <div
+                className="absolute inset-0 -inset-x-4 
+               bg-gradient-to-r from-transparent via-black/50 to-transparent 
+               backdrop-blur-md 
+               [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+                aria-hidden="true"
+              />
 
+              {/* The Crystal Clear Text Layer */}
+              <p className="relative z-10 text-lg md:text-xl leading-relaxed text-white px-4 py-2">
+                {currentData.description}
+              </p>
+            </motion.div>
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
