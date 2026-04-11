@@ -31,30 +31,7 @@ const contentMap = {
     vid: "Hyr0iJ7gcoU",
     desc: "INTERLOCKING BLOCKS to the world.Its cheap and affordable compared to any other stones.",
   },
-  7: {
-    vid: "8OpfYbJkeVs",
-    desc: "150,000 sq ft expansion adding 30 new retail spaces and a food court.",
-  },
-  8: {
-    vid: "8OpfYbJkeVs",
-    desc: "Contemporary farmhouse with traditional elements and modern amenities.",
-  },
-  9: {
-    vid: "8OpfYbJkeVs",
-    desc: "State-of-the-art science facility with laboratories and lecture halls.",
-  },
-  10: {
-    vid: "8OpfYbJkeVs",
-    desc: "Luxury 12-story condominium building with ocean views.",
-  },
-  11: {
-    vid: "8OpfYbJkeVs",
-    desc: "Conversion of old warehouse into modern creative office space.",
-  },
-  12: {
-    vid: "8OpfYbJkeVs",
-    desc: "Luxury mountain lodge with stunning views and rustic elegance.",
-  },
+ 
 };
 
 const baseProjects = [
@@ -101,62 +78,7 @@ const baseProjects = [
       "https://i.ytimg.com/an_webp/ZNs2idypWac/mqdefault_6s.webp?du=3000&sqp=CIva6c4G&rs=AOn4CLB7bI8K3FeRubiyQaXRkGNxN6lQMA",
     // "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1950&q=80",
   },
-  {
-    id: 6,
-    title: "Downtown Loft Conversions",
-    slug: "downtown-loft-conversions",
-    category: "Renovation",
-    image:
-      "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 7,
-    title: "Shopping Mall Expansion",
-    slug: "shopping-mall-expansion",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 8,
-    title: "Modern Farmhouse",
-    slug: "modern-farmhouse",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 9,
-    title: "University Science Center",
-    slug: "university-science-center",
-    category: "Commercial",
-    image:
-      "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 10,
-    title: "Beachfront Condominiums",
-    slug: "beachfront-condominiums",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 11,
-    title: "Industrial Warehouse Conversion",
-    slug: "industrial-warehouse-conversion",
-    category: "Renovation",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1950&q=80",
-  },
-  {
-    id: 12,
-    title: "Mountain Retreat Lodge",
-    slug: "mountain-retreat-lodge",
-    category: "Residential",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1950&q=80",
-  },
+ 
 ];
 
 export const projects = baseProjects.map((project) => {
