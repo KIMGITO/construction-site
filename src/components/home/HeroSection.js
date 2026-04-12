@@ -1,184 +1,316 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useMemo,
-} from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { heroSlides, getHeroImageUrl } from "../../data/heroSlides";
+import { heroSlides } from "../../data/heroSlides";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  // const [isPlaying, setIsPlaying] = useState(true);
+  const isPlaying = true;
   const [typedText, setTypedText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
-  );
+  const [typingComplete, setTypingComplete] = useState(false);
 
   const timeoutRef = useRef(null);
+  const intervalRef = useRef(null);
 
-  // 1. Responsive Window Logic
+  // Calculate typing time for current title
+  const calculateTypingTime = (title) => {
+    const typingSpeed = 100; // ms per character when typing
+    const deletingSpeed = 50; // ms per character when deleting
+    const pauseTime = 2000; // pause at full text
+
+    // Time to type full title + pause + time to delete
+    return (
+      title.length * typingSpeed + pauseTime + title.length * deletingSpeed
+    );
+  };
+
+  // Typewriter effect for titles
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    const titles = heroSlides.map((slide) => slide.title);
+    const typingSpeed = isDeleting ? 50 : 100;
+    const currentTitle = titles[currentSlide];
 
-  // 2. Performance-Optimized Image Selection
-  const currentData = heroSlides[currentSlide];
-  const targetWidth = windowWidth > 768 ? 1600 : 800;
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
 
-  const highResUrl = useMemo(
-    () => getHeroImageUrl(currentData.bgImage, targetWidth),
-    [currentData.bgImage, targetWidth]
-  );
-  const blurUrl = useMemo(
-    () => getHeroImageUrl(currentData.bgImage, 50, true),
-    [currentData.bgImage]
-  );
-
-  // 3. Robust Typewriter Logic
-  useEffect(() => {
-    const currentTitle = currentData.title;
-    const typingSpeed = isDeleting ? 40 : 80; // Slightly faster for snappier feel
-    const pauseAtEnd = 3000; // How long to stay on full text
-
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-
-    // Case: Finished typing
     if (!isDeleting && charIndex === currentTitle.length) {
-      timeoutRef.current = setTimeout(() => setIsDeleting(true), pauseAtEnd);
+      // Typing complete
+      setTypingComplete(true);
+
+      // Wait before starting to delete
+      timeoutRef.current = setTimeout(() => {
+        setIsDeleting(true);
+        setTypingComplete(false);
+      }, 10000);
       return;
     }
 
-    // Case: Finished deleting
     if (isDeleting && charIndex === 0) {
+      // Deletion complete - move to next slide
       setIsDeleting(false);
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
       return;
     }
 
-    // Execution: Add/Remove character
+    // Continue typing or deleting
     timeoutRef.current = setTimeout(() => {
-      setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
       setTypedText(
         currentTitle.substring(0, charIndex + (isDeleting ? -1 : 1))
       );
+      setCharIndex((prev) => prev + (isDeleting ? -1 : 1));
     }, typingSpeed);
 
-    return () => clearTimeout(timeoutRef.current);
-  }, [charIndex, isDeleting, currentSlide, currentData.title]);
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [charIndex, isDeleting, currentSlide]);
 
-  // 4. Background Preloading (Next 2 Slides)
+  // Auto-scroll slides - synchronized with typing
   useEffect(() => {
-    const nextIndices = [
-      (currentSlide + 1) % heroSlides.length,
-      (currentSlide + 2) % heroSlides.length,
-    ];
-    nextIndices.forEach((index) => {
-      const img = new Image();
-      img.src = getHeroImageUrl(heroSlides[index].bgImage, targetWidth);
-    });
-  }, [currentSlide, targetWidth]);
+    // Clear any existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
 
-  const goToSlide = (index) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setCurrentSlide(index);
+    if (isPlaying) {
+      const currentTitle = heroSlides[currentSlide].title;
+      const slideDuration = calculateTypingTime(currentTitle) + 1000; // Add 1s buffer
+
+      intervalRef.current = setInterval(() => {
+        // Only auto-advance if typing is complete or we're not in the middle of typing
+        if (typingComplete || charIndex === 0) {
+          setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+          // Reset typewriter for new slide
+          setCharIndex(0);
+          setTypedText("");
+          setIsDeleting(false);
+          setTypingComplete(false);
+        }
+      }, slideDuration);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPlaying, currentSlide, typingComplete, charIndex]);
+
+  // Reset everything when manually changing slides
+  const resetForNewSlide = useCallback((newIndex) => {
+    setCurrentSlide(newIndex);
     setCharIndex(0);
     setTypedText("");
     setIsDeleting(false);
+    setTypingComplete(false);
+
+    // Clear and restart interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  }, []);
+
+  const goToSlide = (index) => {
+    resetForNewSlide(index);
   };
 
-  const typingProgress = (charIndex / currentData.title.length) * 100;
+  // const nextSlide = useCallback(() => {
+  //   const newIndex = (currentSlide + 1) % heroSlides.length;
+  //   resetForNewSlide(newIndex);
+  // }, [currentSlide, resetForNewSlide]);
+
+  // const prevSlide = useCallback(() => {
+  //   const newIndex = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+  //   resetForNewSlide(newIndex);
+  // }, [currentSlide, resetForNewSlide]);
+
+  // const togglePlay = () => {
+  //   setIsPlaying(!isPlaying);
+  //   if (!isPlaying) {
+  //     // Restart interval when playing
+  //     if (intervalRef.current) {
+  //       clearInterval(intervalRef.current);
+  //     }
+  //   }
+  // };
+
+  const currentData = heroSlides[currentSlide];
+
+  // Calculate progress for visual indicator
+  const typingProgress = currentData
+    ? (charIndex / currentData.title.length) * 100
+    : 0;
 
   return (
-    <section className="relative h-[100svh] md:h-screen overflow-hidden bg-secondary-900">
+    <section className="relative  max-h-[1000px] md:min-h-[600px] md:h-screen overflow-scroll">
+      {/* Background Image with Overlay */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={`bg-${currentSlide}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          key={currentSlide}
+          initial={{ opacity: 0.4, scale: 1.6 }}
+          animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0"
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${currentData.bgImage})`,
+          }}
         >
-          {/* Blur Placeholder */}
-          <div
-            className="absolute inset-0 bg-cover bg-center scale-105 blur-md"
-            style={{ backgroundImage: `url(${blurUrl})` }}
-          />
-
-          {/* Main Image */}
-          <motion.div
-            className="absolute inset-0 bg-cover bg-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            style={{ backgroundImage: `url(${highResUrl})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/80 via-secondary-900/40 to-primary-500/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary-900/60 to-primary-500/40"></div>
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 h-full flex items-center">
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center mt-16">
         <div className="container mx-auto px-5 text-white">
           <motion.div
-            key={`content-${currentSlide}`}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            key={currentSlide}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-4xl"
           >
-            <div className="relative inline-block mb-6">
-              <h1 className="text-4xl md:text-7xl font-bold leading-tight drop-shadow-2xl min-h-[120px] md:min-h-[180px] tracking-tight">
+            <div className="relative">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight drop-shadow-lg min-h-[120px] md:min-h-[150px]">
                 {typedText}
                 <span className="animate-pulse ml-1 text-primary-500">|</span>
               </h1>
-              <div className="absolute -bottom-2 left-0 w-full h-1 bg-white/10 rounded-full overflow-hidden">
+
+              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-white/20 rounded-full overflow-hidden">
                 <motion.div
                   className="h-full bg-primary-500"
-                  style={{ width: `${typingProgress}%` }}
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${typingProgress}%` }}
+                  transition={{ duration: 0.1 }}
                 />
               </div>
             </div>
 
-            <p className="text-xl md:text-3xl mb-4 font-semibold text-primary-100 italic">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-xl md:text-2xl mb-4 font-bold"
+            >
               {currentData.subtitle}
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed text-white/90 mb-10 max-w-2xl bg-black/30 backdrop-blur-md p-6 rounded-xl border border-white/10">
-              {currentData.description}
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-5">
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="relative mb-8 max-w-2xl group"
+            >
+              {/* The Seamless Background Layer */}
+              <div
+                className="absolute inset-0 -inset-x-4 
+               bg-gradient-to-r from-transparent via-black/50 to-transparent 
+               backdrop-blur-md 
+               [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
+                aria-hidden="true"
+              />
+
+              {/* The Crystal Clear Text Layer */}
+              <p className="relative z-10 text-lg md:text-xl leading-relaxed text-white px-4 py-2">
+                {currentData.description}
+              </p>
+            </motion.div>
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Link
                 to={currentData.primaryCTA.link}
-                className="px-10 py-4 bg-primary-500 text-white rounded-lg font-bold hover:bg-primary-600 transition-all text-center shadow-lg shadow-primary-500/20"
+                className="btn btn-primary text-center px-8 py-3 bg-primary-500 text-white rounded hover:bg-primary-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 {currentData.primaryCTA.text}
               </Link>
               <Link
                 to={currentData.secondaryCTA.link}
-                className="px-10 py-4 border-2 border-white/80 text-white rounded-lg font-bold hover:bg-white hover:text-secondary-900 transition-all text-center backdrop-blur-sm"
+                className="btn btn-secondary text-center px-8 py-3 bg-transparent text-white border-2 border-white rounded hover:bg-white hover:text-secondary-500 transition-all duration-300 hover:-translate-y-1"
               >
                 {currentData.secondaryCTA.text}
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-4">
+      {/* Navigation Arrows */}
+      {/* <button
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-primary-500/80 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm"
+        aria-label="Previous slide"
+      >
+        <FaChevronLeft className="text-lg md:text-xl" />
+      </button> */}
+
+      {/* <button
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-black/30 hover:bg-primary-500/80 rounded-full flex items-center justify-center text-white transition-all duration-300 backdrop-blur-sm"
+        aria-label="Next slide"
+      >
+        <FaChevronRight className="text-lg md:text-xl" />
+      </button> */}
+
+      {/* Timer Indicator Ring */}
+      {/* {isPlaying && (
+        <div className="absolute bottom-24 left-4 md:left-8 z-20 w-10 h-10">
+          <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+            <circle
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="rgba(255,255,255,0.2)"
+              strokeWidth="4"
+            />
+            <motion.circle
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="#c9a959"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeDasharray="283"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: 283 }}
+              transition={{
+                duration:
+                  calculateTypingTime(heroSlides[currentSlide].title) / 1000,
+                ease: "linear",
+                repeat: 0,
+              }}
+              key={currentSlide}
+            />
+          </svg>
+        </div>
+      )} */}
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-1.5 rounded-full transition-all duration-500 ${
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               currentSlide === index
-                ? "w-12 bg-primary-500"
-                : "w-4 bg-white/30 hover:bg-white/60"
+                ? "w-8 bg-primary-500"
+                : "bg-white/50 hover:bg-white/80"
             }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>

@@ -1,36 +1,8 @@
-/**
- * Utility to generate optimized URLs
- * @param {string} id - Cloudinary Public ID or Unsplash ID
- * @param {number} width - Target width
- * @param {boolean} blur - If true, returns a tiny blurred placeholder
- */
-export const getHeroImageUrl = (id, width = 1920, blur = false) => {
-  if (id.startsWith("photo-")) {
-    // Unsplash Logic: Higher compression (q=60) for backgrounds
-    return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${
-      blur ? 50 : width
-    }&q=${blur ? 10 : 60}${blur ? "&blur=100" : ""}`;
-  }
-
-  // Cloudinary Logic: Using q_auto:eco for maximum byte savings
-  const params = [
-    "f_auto",
-    "q_auto:eco",
-    `w_${blur ? 50 : width}`,
-    "c_fill",
-    "g_auto",
-  ];
-  if (blur) params.push("e_blur:1000");
-
-  return `https://res.cloudinary.com/dhekeyvop/image/upload/${params.join(
-    ","
-  )}/${id}`;
-};
-
 export const heroSlides = [
   {
     id: 1,
-    bgImage: "v1775901638/IMG-20260408-WA0045_wzorqv.jpg",
+    bgImage:
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901638/IMG-20260408-WA0045_wzorqv.jpg",
     title: "Build Smart, Save Big",
     subtitle: "Save up to 30% on construction costs",
     description:
@@ -43,11 +15,11 @@ export const heroSlides = [
   {
     id: 2,
     bgImage:
-      "e_gen_background_replace:prompt_a%20paved%20background%0A/worker-builds-cinder-block-wall-new-home_odfol6.png",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/e_gen_background_replace:prompt_a%20paved%20background%0A/worker-builds-cinder-block-wall-new-home_odfol6.png",
     title: "Premium Interlocking Blocks",
     subtitle: "Colored & non-colored options available",
     description:
-      "Our high-quality interlocking blocks come in various colors and finishes. No plastering needed - build beautiful, durable walls that stand the test of time.",
+      "Our high-quality interlocking blocks come in various colors and finishes. No plastering needed - build beautiful, durable walls that stand the test of time with superior strength.",
     primaryCTA: { text: "View Blocks", link: "/services/block-production" },
     secondaryCTA: { text: "Order Now", link: "/contact" },
     overlay: "from-secondary-900/85 to-primary-600/75",
@@ -55,11 +27,12 @@ export const heroSlides = [
   },
   {
     id: 3,
-    bgImage: "v1775901642/IMG-20260408-WA0007_imatoq.jpg",
+    bgImage:
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1775901642/IMG-20260408-WA0007_imatoq.jpg",
     title: "Expert Roofing Services",
     subtitle: "Professional installation & repair",
     description:
-      "From new roof installations to repairs and maintenance, our roofing experts ensure your home stays protected with quality materials.",
+      "From new roof installations to repairs and maintenance, our roofing experts ensure your home stays protected with quality materials and proven techniques that last for years.",
     primaryCTA: { text: "Roofing Services", link: "/services/roofing" },
     secondaryCTA: { text: "Get Quote", link: "/contact" },
     overlay: "from-secondary-900/80 to-primary-600/70",
@@ -67,11 +40,12 @@ export const heroSlides = [
   },
   {
     id: 4,
-    bgImage: "photo-1621905251918-48416bd8575a",
+    bgImage:
+      "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     title: "Plumbing & Electrical Installation",
     subtitle: "Certified professionals for safe installations",
     description:
-      "Our certified plumbers and electricians ensure all installations meet safety standards. Reliable, efficient solutions for your home or business.",
+      "Our certified plumbers and electricians ensure all installations meet safety standards. Reliable, efficient solutions for your home or business wiring and water systems.",
     primaryCTA: {
       text: "Plumbing Services",
       link: "/services/plumbing-electrical",
@@ -85,11 +59,12 @@ export const heroSlides = [
   },
   {
     id: 5,
-    bgImage: "photo-1765371514211-9b93c204bb81",
+    bgImage:
+      "https://images.unsplash.com/photo-1765371514211-9b93c204bb81?w=1920&h=1080&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHdhbGwlMjBmaW5pc2h8ZW58MHx8MHx8fDA%3D",
     title: "Wall Skimming & Plastering",
     subtitle: "Smooth, flawless walls",
     description:
-      "Achieve perfectly smooth walls with our expert skimming services. The perfect foundation for painting, creating professional-grade surfaces.",
+      "Achieve perfectly smooth walls with our expert skimming services. The perfect foundation for painting, creating professional-grade surfaces throughout your home.",
     primaryCTA: { text: "Skimming Services", link: "/services/skimming" },
     secondaryCTA: { text: "Get Quote", link: "/contact" },
     overlay: "from-secondary-900/85 to-primary-600/70",
@@ -97,11 +72,12 @@ export const heroSlides = [
   },
   {
     id: 6,
-    bgImage: "v1775907742/close-up-hand-painting-wall-with-roller_rmnmfj.jpg",
+    bgImage:
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill/v1775907742/close-up-hand-painting-wall-with-roller_rmnmfj.jpg",
     title: "Professional Painting",
     subtitle: "Bring color to life with flawless finishes",
     description:
-      "Our professional painters deliver immaculate results with premium paints. From interior walls to exterior facades, we ensure smooth coverage.",
+      "Our professional painters deliver immaculate results with premium paints. From interior walls to exterior facades, we ensure smooth, even coverage.",
     primaryCTA: { text: "Painting Services", link: "/services/painting" },
     secondaryCTA: { text: "Color Consultation", link: "/contact" },
     overlay: "from-secondary-900/90 to-primary-500/80",
@@ -109,11 +85,12 @@ export const heroSlides = [
   },
   {
     id: 7,
-    bgImage: "photo-1763462980602-07eb86874ac4",
+    bgImage:
+      "https://images.unsplash.com/photo-1763462980602-07eb86874ac4?w=1920&h=1080&fit=crop&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGF2aW5nJTIwc3RvbmVzfGVufDB8fDB8fHww",
     title: "Landscaping & Cabro installation",
     subtitle: "Beautiful outdoor spaces",
     description:
-      "Transform your compound with professional landscaping and cabro paving. From gardens to driveways, we create stunning outdoor spaces.",
+      "Transform your compound with professional landscaping and cabro paving. From gardens to driveways, we create stunning outdoor spaces that enhance property value.",
     primaryCTA: { text: "Landscaping", link: "/services/landscaping" },
     secondaryCTA: { text: "Cabro Paving", link: "/services/cabro" },
     overlay: "from-secondary-900/90 to-primary-500/80",
@@ -121,7 +98,8 @@ export const heroSlides = [
   },
   {
     id: 8,
-    bgImage: "photo-1517581177682-a085bb7ffb15",
+    bgImage:
+      "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1920&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
     title: "Renovation Experts",
     subtitle: "Transform your existing space",
     description:
@@ -133,7 +111,8 @@ export const heroSlides = [
   },
   {
     id: 9,
-    bgImage: "v1775901628/IMG-20260408-WA0025_orvuxn.jpg",
+    bgImage:
+      "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,f_auto,c_fill/v1775901628/IMG-20260408-WA0025_orvuxn.jpg",
     title: "Your Dream Home Awaits",
     subtitle: "Ready to move in or lease",
     description:
