@@ -1,8 +1,11 @@
+// data/heroSlides.js - Updated with optimized images
+
+import { getOptimizedImage } from '../utils/imageOptimizer';
+
 export const heroSlides = [
   {
     id: 1,
-    bgImage:
-      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901638/IMG-20260408-WA0045_wzorqv.jpg",
+    bgImage: getOptimizedImage("https://res.cloudinary.com/dhekeyvop/image/upload/v1775901638/IMG-20260408-WA0045_wzorqv.jpg", { width: 1920 }),
     title: "Build Smart, Save Big",
     subtitle: "Save up to 30% on construction costs",
     description:
@@ -14,8 +17,10 @@ export const heroSlides = [
   },
   {
     id: 2,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://res.cloudinary.com/dhekeyvop/image/upload/e_gen_background_replace:prompt_a%20paved%20background%0A/worker-builds-cinder-block-wall-new-home_odfol6.png",
+      { width: 1920 }
+    ),
     title: "Premium Interlocking Blocks",
     subtitle: "Colored & non-colored options available",
     description:
@@ -27,8 +32,10 @@ export const heroSlides = [
   },
   {
     id: 3,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1775901642/IMG-20260408-WA0007_imatoq.jpg",
+      { width: 1920 }
+    ),
     title: "Expert Roofing Services",
     subtitle: "Professional installation & repair",
     description:
@@ -40,8 +47,10 @@ export const heroSlides = [
   },
   {
     id: 4,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      { width: 1920 }
+    ),
     title: "Plumbing & Electrical Installation",
     subtitle: "Certified professionals for safe installations",
     description:
@@ -59,8 +68,10 @@ export const heroSlides = [
   },
   {
     id: 5,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://images.unsplash.com/photo-1765371514211-9b93c204bb81?w=1920&h=1080&fit=crop&auto=format&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHdhbGwlMjBmaW5pc2h8ZW58MHx8MHx8fDA%3D",
+      { width: 1920 }
+    ),
     title: "Wall Skimming & Plastering",
     subtitle: "Smooth, flawless walls",
     description:
@@ -72,8 +83,10 @@ export const heroSlides = [
   },
   {
     id: 6,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,c_fill/v1775907742/close-up-hand-painting-wall-with-roller_rmnmfj.jpg",
+      { width: 1920 }
+    ),
     title: "Professional Painting",
     subtitle: "Bring color to life with flawless finishes",
     description:
@@ -85,8 +98,10 @@ export const heroSlides = [
   },
   {
     id: 7,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://images.unsplash.com/photo-1763462980602-07eb86874ac4?w=1920&h=1080&fit=crop&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGF2aW5nJTIwc3RvbmVzfGVufDB8fDB8fHww",
+      { width: 1920 }
+    ),
     title: "Landscaping & Cabro installation",
     subtitle: "Beautiful outdoor spaces",
     description:
@@ -98,8 +113,10 @@ export const heroSlides = [
   },
   {
     id: 8,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1920&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVub3ZhdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
+      { width: 1920 }
+    ),
     title: "Renovation Experts",
     subtitle: "Transform your existing space",
     description:
@@ -111,8 +128,10 @@ export const heroSlides = [
   },
   {
     id: 9,
-    bgImage:
+    bgImage: getOptimizedImage(
       "https://res.cloudinary.com/dhekeyvop/image/upload/w_1920,h_1080,f_auto,c_fill/v1775901628/IMG-20260408-WA0025_orvuxn.jpg",
+      { width: 1920 }
+    ),
     title: "Your Dream Home Awaits",
     subtitle: "Ready to move in or lease",
     description:

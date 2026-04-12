@@ -3,82 +3,118 @@
 const SHARED_BASE_URL = "https://www.youtube.com/embed/";
 const SHARED_WATCH_URL = "https://www.youtube.com/watch?v=";
 
-const VIDEO_PARAMS =
-  "?rel=0&autoplay=1&mute=1&loop=1&modestbranding=1&controls=0";
+// Removed autoplay parameters since we're not embedding videos anymore
+const VIDEO_PARAMS = "?rel=0&modestbranding=1";
+
+// Higher quality thumbnail images with fallback
+const getYouTubeThumbnail = (videoId, quality = "maxresdefault") => {
+  // YouTube thumbnail URLs with different qualities
+  const thumbnails = {
+    maxresdefault: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    sddefault: `https://img.youtube.com/vi/${videoId}/sddefault.jpg`,
+    hqdefault: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+    mqdefault: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+    default: `https://img.youtube.com/vi/${videoId}/default.jpg`,
+  };
+
+  // Return the requested quality, or fallback to hqdefault if maxres doesn't exist
+  if (quality === "maxresdefault" && thumbnails.maxresdefault) {
+    return thumbnails.maxresdefault;
+  }
+
+  return thumbnails[quality] || thumbnails.hqdefault;
+};
+
+// Alternative function that returns multiple image sources for progressive loading
+export const getYouTubeThumbnailSet = (videoId) => {
+  return {
+    high: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    medium: `https://img.youtube.com/vi/${videoId}/sddefault.jpg`,
+    low: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+    fallback: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+  };
+};
 
 const contentMap = {
   1: {
     vid: "uhWpUaDQPNQ",
-    desc: "A modern 3 bed room house at Embu with just 20000 blocks & a lightening construction speed.",
+    desc: "A modern 3 bedroom house at Embu with just 20000 blocks & lightning construction speed.",
+    shortDesc: "3 bedroom modern house in Embu",
   },
   2: {
     vid: "AKzLzqzW6iA",
-    desc: "Amazing,2 bedrooms rental houses in Laikipia County built using interlocking blocks. Very smart and spacious rooms.",
+    desc: "Amazing 2 bedrooms rental houses in Laikipia County built using interlocking blocks. Very smart and spacious rooms.",
+    shortDesc: "2 bedroom rental houses in Laikipia",
   },
   3: {
     vid: "UX7RiN1khjg",
-    desc: "17 bedsitters in a 50x100Plot in Nyeri County ",
+    desc: "17 bedsitters in a 50x100 Plot in Nyeri County. Perfect investment opportunity.",
+    shortDesc: "17 bedsitters development in Nyeri",
   },
   4: {
     vid: "ORb8CnqHVTE",
-    desc: "A complete 2 bedroom house in Kajiado using INTERLOCKING BLOCKS,only 1600 blocks consumed.",
+    desc: "A complete 2 bedroom house in Kajiado using INTERLOCKING BLOCKS, only 1600 blocks consumed.",
+    shortDesc: "2 bedroom eco-house in Kajiado",
   },
   5: {
     vid: "ZNs2idypWac",
-    desc: "Construction of perimeter wall using INTERLOCKING BLOCKS in GILGIL.Done using coloured Blocks",
+    desc: "Construction of perimeter wall using INTERLOCKING BLOCKS in GILGIL. Done using colored Blocks.",
+    shortDesc: "Colored block perimeter wall",
   },
   6: {
     vid: "Hyr0iJ7gcoU",
-    desc: "INTERLOCKING BLOCKS to the world.Its cheap and affordable compared to any other stones.",
+    desc: "INTERLOCKING BLOCKS to the world. It's cheap and affordable compared to any other stones.",
+    shortDesc: "Affordable interlocking blocks",
   },
- 
 };
 
 const baseProjects = [
   {
     id: 1,
-    title: "Amazing 3 bedroom  2000blocks @ Embu ",
+    title: "Modern 3 Bedroom House",
+    shortTitle: "3 Bedroom House",
     slug: "modern-3-bedroom",
     category: "Residential",
-    image:
-      "https://i.ytimg.com/an_webp/uhWpUaDQPNQ/mqdefault_6s.webp?du=3000&sqp=CPCu6c4G&rs=AOn4CLBERWr-xHmosXtV8gIist_AUiyJiQ",
-    // "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1950&q=80",
+    // Use sddefault or hqdefault which are more reliable
+    image: getYouTubeThumbnail("uhWpUaDQPNQ", "sddefault"),
+    thumbnailSet: getYouTubeThumbnailSet("uhWpUaDQPNQ"),
   },
   {
     id: 2,
-    title: "2 Bedroom Commercial Houses",
-    slug: "Nanyuki-2-bedroom-rental-houses",
+    title: "Commercial Rental Houses",
+    shortTitle: "Rental Houses",
+    slug: "nanyuki-2-bedroom-rental-houses",
     category: "Commercial",
-    image:
-      "https://i.ytimg.com/an_webp/AKzLzqzW6iA/mqdefault_6s.webp?du=3000&sqp=CPCu6c4G&rs=AOn4CLBIaneStANCEZ7guJRNft8-gDVxEw",
-    // "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1950&q=80",
+    image: getYouTubeThumbnail("AKzLzqzW6iA", "sddefault"),
+    thumbnailSet: getYouTubeThumbnailSet("AKzLzqzW6iA"),
   },
   {
     id: 3,
-    title: "17 Bedsitters rental  houses.",
+    title: "17 Bedsitters Development",
+    shortTitle: "Bedsitters Project",
     slug: "bedsitters-rental-houses",
-    category: "Comercial",
-    image:
-      "https://i.ytimg.com/an_webp/UX7RiN1khjg/mqdefault_6s.webp?du=3000&sqp=CPDD6c4G&rs=AOn4CLA27I5s9mNRBgTJyoVFImktqEdhbQ",
+    category: "Commercial",
+    image: getYouTubeThumbnail("UX7RiN1khjg", "sddefault"),
+    thumbnailSet: getYouTubeThumbnailSet("UX7RiN1khjg"),
   },
   {
     id: 4,
-    title: "2 Bedroom in Kajiando",
+    title: "Eco 2 Bedroom House",
+    shortTitle: "2 Bedroom House",
     slug: "two-bedroom-in-kajiando",
     category: "Residential",
-    image:
-      "https://i.ytimg.com/an_webp/ORb8CnqHVTE/mqdefault_6s.webp?du=3000&sqp=COSW6c4G&rs=AOn4CLD9fAJpD51WCnk1YCgAoeHUO0i0Qg",
+    image: getYouTubeThumbnail("ORb8CnqHVTE", "sddefault"),
+    thumbnailSet: getYouTubeThumbnailSet("ORb8CnqHVTE"),
   },
   {
     id: 5,
-    title: "Perimeter wall",
+    title: "Colored Block Wall",
+    shortTitle: "Perimeter Wall",
     slug: "a-perimeter-wall",
     category: "Security",
-    image:
-      "https://i.ytimg.com/an_webp/ZNs2idypWac/mqdefault_6s.webp?du=3000&sqp=CIva6c4G&rs=AOn4CLB7bI8K3FeRubiyQaXRkGNxN6lQMA",
-    // "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1950&q=80",
+    image: getYouTubeThumbnail("ZNs2idypWac", "sddefault"),
+    thumbnailSet: getYouTubeThumbnailSet("ZNs2idypWac"),
   },
- 
 ];
 
 export const projects = baseProjects.map((project) => {
@@ -86,8 +122,10 @@ export const projects = baseProjects.map((project) => {
   return {
     ...project,
     description: content.desc,
-    videoUrl: `${SHARED_BASE_URL}${content.vid}${VIDEO_PARAMS}&playlist=${content.vid}`,
+    shortDescription: content.shortDesc,
+    videoUrl: `${SHARED_BASE_URL}${content.vid}${VIDEO_PARAMS}`,
     videoOnYouTube: `${SHARED_WATCH_URL}${content.vid}`,
     videoId: content.vid,
+    thumbnailFallback: getYouTubeThumbnail(content.vid, "hqdefault"),
   };
 });

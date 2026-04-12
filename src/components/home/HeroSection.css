@@ -1,62 +1,86 @@
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+/* global.css or your main CSS file - Add to your global CSS for better performance */
+
+/* Hero Section Performance Optimizations */
+.hero-section {
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(201, 169, 89, 0.8) 100%);
+/* Optimize image loading */
+img {
+  content-visibility: auto;
+  loading: lazy;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: var(--white);
-  max-width: 800px;
+/* Optimize all animated elements */
+.hero-section [class*="motion-"],
+.hero-section [class*="animate-"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  line-height: 1.8;
-  font-weight: 300;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-}
-
-@media screen and (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
   }
-
-  .hero p {
-    font-size: 1rem;
+  
+  .hero-section .animate-pulse {
+    animation: none !important;
   }
+}
 
-  .hero-buttons {
-    flex-direction: column;
-    gap: 15px;
+/* Optimize backdrop filters */
+.backdrop-blur-md {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent layout shifts */
+.min-h-\[120px\] {
+  contain: layout;
+  content-visibility: auto;
+}
+
+/* Optimize transitions for better performance */
+.transition-all {
+  will-change: transform, opacity;
+}
+
+/* Loading states */
+.image-loading {
+  filter: blur(10px);
+  transform: scale(1.05);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.image-loaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .hero-section {
+    content-visibility: auto;
+    contain: strict;
+  }
+  
+  .hero-section .text-4xl {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Performance optimization for heavy animations */
+@media (min-width: 1024px) {
+  .hero-section {
+    contain: layout style paint;
   }
 }
