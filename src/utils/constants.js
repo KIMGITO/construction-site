@@ -79,13 +79,12 @@ export const CONTACT = {
 export const SOCIAL = {
   facebook:
     process.env.REACT_APP_FACEBOOK_URL ||
-    "https://facebook.com/INTERLOCKINGBLOCKSBUILDERS",
+    "https://www.facebook.com/profile.php?id=100071149261114",
   tiktok:
-    process.env.REACT_APP_TIKTOK_URL ||
-    "https://tiktok.com/@interlockingblocksbuilders",
+    process.env.REACT_APP_TIKTOK_URL || "https://www.tiktok.com/@eng.martin001",
   youtube:
     process.env.REACT_APP_YOUTUBE_URL ||
-    "https://youtube.com/@interlockingblocksbuilders",
+    "https://instagram.com/interlockingblocksbuilders",
   instagram:
     process.env.REACT_APP_INSTAGRAM_URL ||
     "https://instagram.com/interlockingblocksbuilders",
@@ -121,28 +120,28 @@ export const TEAM = [
     role: process.env.REACT_APP_TEAM_CEO_ROLE || "Founder & CEO",
     bio:
       process.env.REACT_APP_TEAM_CEO_BIO ||
-      "Martin founded Interlocking Blocks Builders in 2020 with a vision to revolutionize the construction industry through interlocking building technology. With over 5 years of experience in innovative construction methods, he leads the company with passion and expertise.",
+      "Driven by a vision to make sustainable housing accessible, Martin founded Interlocking Blocks Builders to pioneer cost-effective, eco-friendly construction technology. With over five years of leadership in innovative building methods, he guides the firm’s strategic growth and commitment to engineering excellence.",
     image: process.env.REACT_APP_TEAM_CEO_IMAGE || null,
     initials: "MM",
   },
   {
-    name: process.env.REACT_APP_TEAM_BLOCKS_PRODUCTION || "Dennis Murimi",
+    name: process.env.REACT_APP_TEAM_BLOCKS_PRODUCTION || "Peter Muriuki",
     role: "Head of Blocks Production",
-    bio: "Dennis oversees the production of high-quality interlocking blocks, ensuring durability, efficiency, and consistent supply for all construction projects.",
+    bio: "Peter bridges the gap between raw materials and structural integrity. He manages the precision manufacturing of our interlocking blocks, implementing rigorous quality control standards to ensure every unit delivers maximum durability and thermal efficiency for our clients' projects.",
     image: null,
-    initials: "DM",
+    initials: "PM",
   },
   {
     name: process.env.REACT_APP_TEAM_ASSISTANT || "Daniel Simiyu",
     role: "Operations Assistant",
-    bio: "Daniel assists in coordinating daily operations, project logistics, and ensuring smooth workflow across construction and production teams.",
+    bio: "The engine behind our daily workflows, Daniel specializes in logistical coordination and site readiness. By streamlining the movement of materials and manpower, he ensures that complex construction timelines remain on track and operational hurdles are cleared before they impact the bottom line.",
     image: null,
     initials: "DS",
   },
   {
     name: process.env.REACT_APP_TEAM_SECRETARY || "Silvia Nyakio",
     role: "Administrative Secretary",
-    bio: "Silvia manages communication, documentation, and administrative coordination to ensure efficient company operations.",
+    bio: "Silvia is the central hub of our client relations and corporate governance. She orchestrates the firm’s administrative ecosystem from documentation to seamless communication ensuring that every project is backed by organized, professional, and transparent management.",
     image: null,
     initials: "SN",
   },

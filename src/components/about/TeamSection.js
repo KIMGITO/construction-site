@@ -30,8 +30,8 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TEAM.slice(0,3).map((member, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
+          {TEAM.slice(0,4).map((member, index) => (
             <motion.div
               key={index}
               className="team-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center pb-6"

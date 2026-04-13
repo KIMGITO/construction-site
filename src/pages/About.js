@@ -16,7 +16,7 @@ const About = () => {
       <SEO
         title="About Us"
         url="/about"
-        description={`Learn about ${COMPANY.name} journey since 2020, specializing in interlocking building technology, block production, roofing, plumbing, electrical, finishing, painting, renovation, landscaping, cabro, and skimming services.`}
+        description={`Learn about ${COMPANY.name} journey since its inception, specializing in interlocking building technology, roofing, plumbing, electrical, and full construction services led by ${ceo.name}.`}
       />
 
       <motion.div
@@ -40,86 +40,78 @@ const About = () => {
                 viewport={{ once: true }}
                 className="story-text"
               >
-                <h2>Our Story</h2>
+                <h2>Our Journey</h2>
+
+                {/* Section 1: Education & Foundation */}
                 <p>
-                  <span className="text-2xl font-primary">I</span>n 2020,
+                  <span className="text-2xl font-primary">T</span>he foundation
+                  of
                   <span className="font-bold font-primary">
+                    {" "}
+                    {COMPANY.name}
+                  </span>{" "}
+                  began in 2018.
+                  <span className="first-letter:font-bold first-letter:text-3xl ">
                     {" "}
                     {ceo.name}
                   </span>{" "}
-                  was working as a helper on construction sites, carrying blocks
-                  and mixing cement, learning the ropes of the building trade.
-                  During this time, he discovered{" "}
-                  <span className="font-semibold font-primary">
-                    interlocking building technology
-                  </span>{" "}
-                  and saw its incredible potential for faster construction, less
-                  material waste, and stronger structures that could save
-                  homeowners up to{" "}
-                  <span className="text-2xl font-semibold font-primary">
-                    30%{" "}
-                  </span>
-                  on construction costs.
+                  started his technical journey at{" "}
+                  <span className="font-semibold">Nyeri Technical</span>, where
+                  he immersed himself in the engineering principles that govern
+                  modern structures. This academic foundation provided the "why"
+                  behind every block and beam we place today.
                 </p>
+
+                {/* Section 2: On-site Experience */}
                 <p>
-                  <span className="text-2xl font-primary">D</span>riven by this
-                  vision, {ceo.name.split(" ")[0]} gathered a small team of
-                  like-minded craftsmen who shared his passion for innovation.
-                  Together, they started{" "}
-                  <span className="font-bold font-primary">{COMPANY.name}</span>{" "}
-                  with just a few projects and an unwavering commitment to{" "}
-                  <span className="font-primary font-semibold">quality</span>.
-                  Their goal was simple:
-                  <span className="italic font-semibold font-primary ">
-                    make quality housing affordable while delivering the best
-                    possible results
+                  <span className="text-2xl font-primary ml-6">B</span>y 2020, theory
+                  met reality. Martin took to the field as a helper on
+                  construction sites, mixing cement, carrying blocks, and
+                  mastering the building trade from the ground up. It was during
+                  these long hours on site that he discovered{" "}
+                  <span className="font-semibold font-primary text-primary-600">
+                    Interlocking Building Technology
                   </span>
-                  .
+                  . He saw its potential to revolutionize the industry by
+                  offering faster construction and stronger structures that
+                  could save homeowners up to{" "}
+                  <span className="font-bold text-xl font-primary">30%</span> on
+                  construction costs.
                 </p>
-                <p>
-                  <span className="text-2xl font-primary">W</span>hat began as a
-                  small team has grown into one of the most
-                  <span className="font-bold capitalize font-primary">
+
+                {/* Section 3: Professional Growth & Company Launch */}
+                <p >
+                  <span className="text-2xl font-primary ml-6">M</span>artin’s vision
+                  was fully realized during his time at the{" "}
+                  <span className="font-semibold">Kenya Project Company</span>.
+                  There, he gained specialized skills in international building
+                  standards and innovative masonry. Armed with this expertise,
+                  he founded{" "}
+                  <span className="font-bold font-primary">{COMPANY.name}</span>
+                  . What began as a small, dedicated team of craftsmen has grown
+                  into a trusted leader in
+                  <span className="italic">
                     {" "}
-                    trusted
-                  </span>{" "}
-                  construction companies. Today, we specialize in{" "}
-                  <span className="font-primary text-[16px]">
-                    interlocking building technology
+                    interlocking technology, roofing, plumbing, electrical
+                    systems, and landscaping.
                   </span>
-                  , our signature method along with a full range of services
-                  including{" "}
-                  <span className="font-primary text-[14px] italic">
-                    roofing, plumbing, electrical, finishing, painting,
-                    renovation, landscaping, cabro installation, and wall
-                    skimming{" "}
-                  </span>
-                  . This approach{" "}
-                  <span className="underline font-semibold">saves time</span>,
-                  <span className="underline font-semibold">
-                    {" "}
-                    reduces resources
-                  </span>
-                  , and{" "}
-                  <span className="underline font-semibold">
-                    delivers superior outcomes
-                  </span>
-                  . From affordable homes to commercial spaces, we've built a
-                  reputation for excellence, reliability, and innovation that
-                  puts our clients first.
                 </p>
+
+                {/* Section 4: Mission & Values */}
                 <p>
-                  Our team of skilled professionals continues to grow, but our
-                  core values remain unchanged:{" "}
-                  <span className="text-base font-semibold">
-                    quality craftsmanship, integrity, and a commitment
-                  </span>{" "}
-                  to{" "}
-                  <span className="text-primary-600 text-2xl font-primary font-semibold">
-                    Building Futures, One Block at a Time...
+                  Today, our reputation is built on{" "}
+                  <span className=" font-semibold">
+                    excellence and reliability
+                  </span>
+                  . From affordable housing to complex commercial spaces, our
+                  core values remain unchanged: quality craftsmanship, absolute
+                  integrity, and a commitment to
+                  <span className="border-l-4 border-black pl-4 bg-black/40 text-2xl font-primary font-semibold block mt-4">
+                    Building Futures, One Block at a Time.
                   </span>
                 </p>
               </motion.div>
+
               <motion.div
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -128,9 +120,10 @@ const About = () => {
                 className="story-image"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1664972988916-da679f400f2b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZyaWNhbiUyMGNvc3RydWN0aW9uJTIwbWVldGluZ3xlbnwwfHwwfHx8MA%3D%3D"
-                  alt={`${COMPANY.name} team meeting`}
+                  src="https://images.unsplash.com/photo-1664972988916-da679f400f2b?w=500&auto=format&fit=crop&q=60"
+                  alt={`${COMPANY.name} team on site`}
                   loading="lazy"
+                  className="rounded-lg shadow-xl"
                 />
               </motion.div>
             </div>

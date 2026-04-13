@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  FaFacebook,
-  FaInstagram,
+
   FaMapMarkerAlt,
   FaPhone,
   FaWhatsapp,
   FaEnvelope,
-  FaYoutube,
 } from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
 import { COMPANY, CONTACT, SERVICES_LIST } from "utils/constants";
+import { SocialLinks } from "components/socials/Socials";
 
 const Footer = () => {
   return (
@@ -26,40 +24,7 @@ const Footer = () => {
             <p className="font-secondary leading-relaxed mb-5 text-gray-300">
               {COMPANY.description}
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://www.facebook.com/profile.php?id=100079212934483"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
-              >
-                <BsTwitterX />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="https://www.youtube.com/@martinmukundi8397"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-white/10 rounded-full text-white transition-all duration-300 hover:bg-primary-500 hover:-translate-y-1"
-              >
-                <FaYoutube />
-              </a>
-            </div>
+            <SocialLinks />
           </div>
 
           {/* Quick Links Section */}
@@ -117,7 +82,7 @@ const Footer = () => {
               Our Services
             </h4>
             <ul className="space-y-2.5 text-gray-300">
-              {SERVICES_LIST.map((service) => (
+              {SERVICES_LIST.slice(0, 7).map((service) => (
                 <li>
                   {"✔ "}
                   {service}

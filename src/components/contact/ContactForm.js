@@ -57,7 +57,7 @@ const ContactForm = () => {
       setFormStatus({
         submitted: true,
         success: false,
-        message: "Please fix the errors below",
+        message: "Please fill all required fields",
         errors,
       });
       return;

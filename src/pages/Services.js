@@ -11,58 +11,50 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Service images for each category
   const serviceImages = {
     "Affordable Home Construction": [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1568605117036-5fe5e7fa0c1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/ORb8CnqHVTE/maxresdefault.jpg",
+      "https://img.youtube.com/vi/eYVBphCOGHw/maxresdefault.jpg",
+      "https://img.youtube.com/vi/rp9TN77Nzk4/maxresdefault.jpg",
+      "https://img.youtube.com/vi/_LQMDKtcwNU/maxresdefault.jpg",
     ],
     "Block Production": [
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/plPw_Jd4dX4/maxresdefault.jpg",
+      "https://img.youtube.com/vi/U_ghDgg5_hQ/maxresdefault.jpg",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1776091192/878844df-ce6c-477f-adb2-e288ad98b5cd.png",
     ],
     "Roofing Installation & Repair": [
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1632778149955-e80f8ceca2a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901640/IMG-20260408-WA0001_os7lis.jpg",
+      "https://res.cloudinary.com/dhekeyvop/image/upload/v1775901642/IMG-20260408-WA0007_imatoq.jpg",
     ],
     "Plumbing & Electrical Services": [
-      "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/yj_R8fhARDA/maxresdefault.jpg",
+      "https://img.youtube.com/vi/VHskY87aBS4/maxresdefault.jpg",
+      "https://img.youtube.com/vi/rlv5-Td4JZM/maxresdefault.jpg",
     ],
     "Interior & Exterior Finishing": [
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/z04fIsGSrEo/maxresdefault.jpg",
+      "https://img.youtube.com/vi/bJtlLv_a_iM/maxresdefault.jpg",
+      "https://img.youtube.com/vi/CL7GD9solxk/maxresdefault.jpg",
     ],
     "Professional Painting Services": [
-      "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1562259949-8e76873d88c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1581092335443-2c8a3d7b7a8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/60Jlh9gx7EU/maxresdefault.jpg",
+      "https://img.youtube.com/vi/bJtlLv_a_iM/maxresdefault.jpg",
+      "https://img.youtube.com/vi/9cb8hQPDiQ0/maxresdefault.jpg",
     ],
     "Home Renovation & Remodeling": [
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/d91Ssdc-XKA/maxresdefault.jpg",
     ],
     "Landscaping Design & Installation": [
-      "https://images.unsplash.com/photo-1558904541-efa843c96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/0YwOoLNYyPw/maxresdefault.jpg",
+      "https://img.youtube.com/vi/uSePzRLO2bo/maxresdefault.jpg",
     ],
+
     "Cabro Production & Installation": [
-      "https://images.unsplash.com/photo-1558904541-efa843c96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1568605117036-5fe5e7fa0c1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      "https://img.youtube.com/vi/waFspG5slzE/maxresdefault.jpg",
+      "https://img.youtube.com/vi/rjWzbQnJOnA/maxresdefault.jpg",
     ],
-    "Wall Skimming & Plaster Finishing": [
-      "https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    ],
+    "Wall Skimming & Plaster Finishing": [],
   };
 
   const openModal = (service) => {
